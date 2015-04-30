@@ -1,0 +1,16 @@
+* {
+  border-box: box-sizing;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #eee;
+}
+
+div {
+  background: #ddd;
+  color: #124191;
+  font-weight: bold;
+  border-radius: 5px;
+}
