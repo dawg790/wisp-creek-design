@@ -1,16 +1,98 @@
 * {
-  border-box: box-sizing;
-}
+  box-sizing: border-box; }
 
 body {
   margin: 0;
   padding: 0;
-  background: #eee;
-}
+  font-family: 'Raleway', sans-serif; }
 
-div {
-  background: #ddd;
-  color: #124191;
-  font-weight: bold;
-  border-radius: 5px;
-}
+header {
+  width: 100%;
+  font-size: 3em;
+  padding: 25px 50px;
+  position: fixed;
+  top: 0;
+  color: #fff;
+  text-align: center; }
+  header > span {
+    color: red; }
+
+.icon {
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  top: 90px; }
+
+#wcd-icon-text {
+  display: none; }
+
+.nav {
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  top: 136px;
+  padding-left: 0; }
+
+.nav > li {
+  padding: 5px 25px;
+  display: inline;
+  color: #d3d3d3;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  font-weight: 700; }
+  .nav > li > a {
+    text-decoration: none;
+    color: #d3d3d3; }
+    .nav > li > a:hover {
+      color: #fff; }
+
+#right,
+#left {
+  position: absolute;
+  top: 50%; }
+
+#right {
+  right: 0; }
+
+.underlay {
+  height: 200%;
+  width: 200%;
+  top: -50%;
+  right: -50%;
+  position: fixed;
+  display: block;
+  z-index: -1; }
+
+.underlay img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%; }
+
+@media screen and (max-width: 550px) {
+  #wcd-icon-text {
+    display: inline-block; }
+
+  #wcd-icon,
+  header {
+    display: none; }
+
+  .icon {
+    top: 25px; }
+
+  .nav {
+    top: 60px; }
+
+  .nav li {
+    font-size: .7em;
+    padding: 5px 15px; }
+
+  /* This is only being used to make the stock.jpg image fit the mobile view better */
+  .underlay img {
+    left: -700px; } }
+
+/*# sourceMappingURL=main.css.map */
