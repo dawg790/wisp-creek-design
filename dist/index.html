@@ -1,18 +1,37 @@
-<!DOCTYPE html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1"><link href="http://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css"><link rel="stylesheet" href="css/main.min.css"><title>Wisp Creek Design | Jewelry Box</title><script src="js/jquery.min.js"></script></head><body><div class="icon"><img id="wcd-icon" src="images/icon_no_text.png"> <img id="wcd-icon-text" src="images/icon_text.png"></div><header>WISP CREEK <span>DESIGN</span></header><ul class="nav"><li><a href="#">Experience</a></li><li><a href="#">Build</a></li><li><a href="#">Order Status</a></li></ul><div class="arrows"><a href="#"><img id="left" src="images/left-arrow.png"></a> <a href="#"><img id="right" src="images/right-arrow.png"></a></div><div class="underlay"><img id="bgPic" src="images/stock.jpg"></div><script>var nIntervalId;
+<!DOCTYPE html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1"><link href="http://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css"><link rel="stylesheet" href="css/main.min.css"><title>Wisp Creek Design | Jewelry Box</title><script src="js/jquery.min.js"></script></head><body><header><a href="index.html"><h1>WISP CREEK <span>DESIGN</span></h1></a><div class="icon"><a href="index.html"><img id="wcd-icon" src="images/icon_no_text.png"></a> <a href="index.html"><img id="wcd-icon-text" src="images/icon_text_red.png"></a></div><ul class="nav"><li><a href="experience.html">Experience</a></li><li><a href="#">Build</a></li><li><a href="#">Order Status</a></li></ul></header><div class="tagline"><p>Featuring handmade, fine furniture from our woodworking shop in Bailey, Colorado. We feature walnut jewelry boxes.</p></div><div class="arrows"><a href="#"><img id="left" src="images/left-arrow.png"></a> <a href="#"><img id="right" src="images/right-arrow.png"></a></div><div class="underlay"><img id="bgPic" src="images/stock.jpg"></div><script>$('#left').click(function() {
+	  	leftScroll();
+	  });
 
-    function changePic() {
-    	nIntervalId = setInterval(newPic, 5000);
-    }
+	  $('#right').click(function() {
+	  	rightScroll();
+	  });
 
-    function newPic() {
-    	var pics = ["images/stock.jpg", "images/drawing.jpg", "images/splines.jpg", "images/dry_finish.jpg"];
-    	var num = getRandomArbitrary(0, 4);
-    	$('#bgPic').animate({ opacity: 0.0 }, "slow", function() {
-    		$('#bgPic').attr('src', pics[num]);
-    	});
-    	$('#bgPic').animate({ opacity: 1 }, "fast");
-    }
+	  var nIntervalId;
+	  var count = 0;
+	  var pics = [
+	    "images/stock.jpg",
+	    "images/drawing.jpg",
+	    "images/splines.jpg",
+	    "images/dry_finish.jpg",
+	    "images/box_open_lg.png"
+	  ];
 
-    function getRandomArbitrary(min, max) {
-		  return Math.floor(Math.random() * (max - min) + min)
-		}</script></body></html>
+	  // Scrolls through our pictures array, but stops incrementing if we reach the last picture
+	  function rightScroll() {
+	  	if (count < 4) {
+	  		count++;
+	  		$('#bgPic').attr('src', pics[count]);
+	  	} else if (count === 4) {
+	  		$('#bgPic').attr('src', pics[count]);
+	  	}
+	  }
+
+	  // Scrolls through as above but stops decrementing if we are at the first picture
+	  function leftScroll() {
+	  	if (count > 0) {
+	  		count--;
+	  		$('#bgPic').attr('src', pics[count]);
+	  	} else if (count === 0) {
+	  		$('#bgPic').attr('src', pics[count]);
+	  	}
+	  }</script></body></html>
