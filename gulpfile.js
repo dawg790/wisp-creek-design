@@ -77,7 +77,7 @@ gulp.task('watch', function () {
   gulp.watch('src/css/*.css', ['styles']);
   gulp.watch('src/js/*.js', ['scripts']);
   gulp.watch('src/*.html', ['content']);
-  gulp.watch('src/*.*', ['images']);
+  // gulp.watch('src/*.*', ['images']);
 });
 
 // Handle the error

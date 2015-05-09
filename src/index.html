@@ -1,46 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="css/main.min.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
+
   <title>Wisp Creek Design | Jewelry Box</title>
 
-  <script src="js/jquery.min.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/main.min.css">
+
 </head>
 
 <body>
 
-	<header>
-		<a href="index.html"><h1>WISP CREEK <span>DESIGN</span></h1></a>
+	<div class="wrapper">
 
-		<div class="icon">
-			<a href="index.html"><img id="wcd-icon" src="images/icon_no_text.png"></a>
-			<a href="index.html"><img id="wcd-icon-text" src="images/icon_text_red.png"></a>
+		<header>
+			<a href="index.html"><h1>WISP CREEK <span>DESIGN</span></h1></a>
+
+			<div class="icon">
+				<a href="index.html"><img id="wcd-icon" src="images/icon_no_text.png"></a>
+				<a href="index.html"><img id="wcd-icon-text" src="images/icon_text_red.png"></a>
+			</div>
+
+			<ul class="nav">
+				<li><a href="media.html">Media</a></li>
+				<li><a href="#">Build</a></li>
+				<li><a href="order.html">Order Status</a></li>
+			</ul>
+		</header>
+
+		<div class="tagline">
+			<p>Featuring handmade, fine furniture from our woodworking shop in Bailey, Colorado. We feature walnut jewelry boxes.</p>
 		</div>
 
-		<ul class="nav">
-			<li><a href="experience.html">Experience</a></li>
-			<li><a href="#">Build</a></li>
-			<li><a href="#">Order Status</a></li>
-		</ul>
-	</header>
+		<div class="arrows">
+			<a href="#"><img id="left" src="images/left-arrow.png"></a>
+			<a href="#"><img id="right" src="images/right-arrow.png"></a>
+		</div>
 
-	<div class="tagline">
-		<p>Featuring handmade, fine furniture from our woodworking shop in Bailey, Colorado. We feature walnut jewelry boxes.</p>
-	</div>
-
-	<div class="arrows">
-		<a href="#"><img id="left" src="images/left-arrow.png"></a>
-		<a href="#"><img id="right" src="images/right-arrow.png"></a>
-	</div>
-
-  <div class="underlay">
-    <img id="bgPic" src="images/stock.jpg">
+	  <div class="underlay">
+	    <img id="bgPic" src="images/stock.jpg">
+	  </div>
   </div>
 
 
-
+  <script src="js/jquery.min.js"></script>
   <script>
 
 	  $('#left').click(function() {
@@ -51,7 +58,6 @@
 	  	rightScroll();
 	  });
 
-	  var nIntervalId;
 	  var count = 0;
 	  var pics = [
 	    "images/stock.jpg",

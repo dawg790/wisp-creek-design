@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1"><title>Wisp Creek Design | Order Status</title><link href="http://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css"><link rel="stylesheet" href="css/main.min.css"><script src="js/jquery.min.js"></script><script>// Helper js function to get height and width of browser
+		var w = window,
+			d = document,
+			e = d.documentElement,
+			g = d.getElementsByTagName('body')[0],
+			x = w.innerWidth || e.clientWidth || g.clientWidth,
+			y = w.innerHeight || e.clientHeight || g.clientHeight;
+		console.log(x);
+		console.log(y);
+
+		// Header styling changes on Scroll
+		if (x > 930) {
+		  $(document).scroll(function() {
+		  	if ( $(this).scrollTop() > 35 ) {
+		  		$('.icon').css('display', 'none');
+		  		$('header').animate({
+		  			paddingTop: '5px',
+		  		}, 'slow');
+		  		$('.nav').animate({
+		  			marginTop: '-30px'
+		  		}, 'slow');
+		  	}
+		  });
+		}</script></head><body><div class="wrapper"><header class="header-order"><a href="index.html"><h1>WISP CREEK <span>DESIGN</span></h1></a><div class="icon"><a href="index.html"><img id="wcd-icon" src="images/icon_no_text.png"></a> <a href="index.html"><img id="wcd-icon-text" src="images/icon_text_red.png"></a></div><ul class="nav nav-order"><li><a href="media.html">Media</a></li><li><a href="#">Build</a></li><li><a href="order.html">Order Status</a></li></ul></header><div class="status-container"><h2>Check your Order</h2><form id="order-status-form"><label for="order-name">Last Name:</label><input id="order-name" type="text" value=""><p>Or...</p><label for="order-num">Order Number:</label><input id="order-num" type="text" value=""> <button>SUBMIT</button></form><h2>Status</h2><p class="buyer">Name: <span></span></p><p class="status">Project Phase: <span></span></p><p class="completion">Est. Completion Date: <span></span></p><p class="notes">Notes: <span></span></p></div></div><script src="js/jquery.min.js"></script><script src="js/app.min.js"></script></body></html>
