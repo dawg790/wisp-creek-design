@@ -1,0 +1,12 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1"><title>Wisp Creek Design | Build Your Box</title><link href="http://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css"><link rel="stylesheet" href="css/main.min.css"><style>.paypal-button {
+	  	display: none;
+	  }</style></head><body><div class="wrapper"><header class="header-build"><a href="index.html"><h1>WISP CREEK <span>DESIGN</span></h1></a><div class="icon"><a href="index.html"><img id="wcd-icon" src="images/icon_no_text.png"></a> <a href="index.html"><img id="wcd-icon-text" src="images/icon_text_red.png"></a></div><ul class="nav nav-build"><li><a href="media.html">Media</a></li><li><a href="build.html">Build</a></li><li><a href="order.html">Order Status</a></li></ul></header><form id="buildIt"><label for="totalCost">Total Cost:</label><input id="totalCost" type="text" value=""> <button>Submit</button></form><script id="payNow" data-env="sandbox" data-shipping="10.00" data-amount="150" data-name="Jewelry Box" data-button="buynow" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=nick_woodland@hotmail.com" async="async"></script></div><script src="js/jquery.min.js"></script><script>$('#buildIt').submit(buyIt);
+
+		function buyIt() {
+			// Get value from the input
+			var value = $('#totalCost').val();
+			// Sets the value of the hidden form field that the paypal button script above creates
+			$('input[name="amount"]').val(value);
+			$('.paypal-button').show();
+			return false;
+		}</script></body></html>
