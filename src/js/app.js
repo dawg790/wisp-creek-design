@@ -54,3 +54,26 @@ function checkOrder() {
 
 	return false;
 }
+
+// Helper js function to get height and width of browser
+var w = window,
+	d = document,
+	e = d.documentElement,
+	g = d.getElementsByTagName('body')[0],
+	x = w.innerWidth || e.clientWidth || g.clientWidth,
+	y = w.innerHeight || e.clientHeight || g.clientHeight;
+console.log(x);
+console.log(y);
+
+
+$(function() {
+
+	/* Hamburger Icon for Mobile view - on click, toggle the .close class to change the hamburger to an X
+	 * then toggle the .open class to show the navigation
+	 */
+	$('button').click(function() {
+		$(this).toggleClass('close');
+		$('header .header-content .header-nav .nav').toggleClass('open');
+	});
+
+});

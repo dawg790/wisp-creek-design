@@ -1,0 +1,71 @@
+/* increase this to see the transformations in slow-motion */
+button {
+  border: none;
+  background: none;
+  display: block;
+  margin-bottom: 10px; }
+  button:focus {
+    outline: 0; }
+
+.lines-button {
+  display: inline-block;
+  padding: 1.25rem 0.625rem;
+  transition: .3s;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.35714rem; }
+  .lines-button:hover {
+    opacity: 1; }
+  .lines-button:active {
+    transition: 0;
+    border: none;
+    outline: none; }
+
+.lines {
+  /* create middle line */
+  display: inline-block;
+  width: 2.5rem;
+  height: 0.35714rem;
+  background: #fff;
+  border-radius: 0.17857rem;
+  transition: 0.3s;
+  position: relative;
+  /* create the upper and lower lines as pseudo-elements of the middle line */ }
+  .lines:before, .lines:after {
+    display: inline-block;
+    width: 2.5rem;
+    height: 0.35714rem;
+    background: #fff;
+    border-radius: 0.17857rem;
+    transition: 0.3s;
+    position: absolute;
+    left: 0;
+    content: '';
+    transform-origin: 0.17857rem center; }
+  .lines:before {
+    top: 0.625rem; }
+  .lines:after {
+    top: -0.625rem; }
+
+.lines-button:hover {
+  opacity: 1; }
+  .lines-button:hover .lines:before {
+    top: 0.71429rem; }
+  .lines-button:hover .lines:after {
+    top: -0.71429rem; }
+
+.lines-button.x.close .lines {
+  /* hide the middle line */
+  background: transparent;
+  /* overlay the lines by setting both their top values to 0 */
+  /* rotate the lines to form the x shape */ }
+  .lines-button.x.close .lines:before, .lines-button.x.close .lines:after {
+    transform-origin: 50% 50%;
+    top: 0;
+    width: 2.5rem; }
+  .lines-button.x.close .lines:before {
+    transform: rotate3d(0, 0, 1, 45deg); }
+  .lines-button.x.close .lines:after {
+    transform: rotate3d(0, 0, 1, -45deg); }
+
+/*# sourceMappingURL=navicon.css.map */
