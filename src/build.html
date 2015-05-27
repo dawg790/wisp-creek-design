@@ -13,29 +13,18 @@
   <link rel="stylesheet" href="css/navicon.min.css">
 
   <style>
-	  .paypal-button {
-	  	display: none;
+
+	  p {
+	  	font-size: 2em;
+	  	color: green;
+	  	margin-top: -10px;
+	  }
+
+	  p span {
+	  	color: green;
 	  }
 
   </style>
-
-  <script src="js/jquery.min.js"></script>
-	<script>
-
-		// Header styling changes on Scroll
-	  $(document).scroll(function() {
-	  	if ( $(this).scrollTop() > 25 ) {
-	  		$('.icon').css('display', 'none');
-	  		$('.nav li').css('line-height', '47px');
-	  		$('header').css('border-bottom', '1px solid #e9e9e9');
-	  	} else if ( $(this).scrollTop() === 0 ) {
-	  		$('.icon').css('display', 'inline-block');
-	  		$('.nav li').css('line-height', '74px');
-	  		$('header').css('border-bottom', 'none');
-	  	}
-	  });
-
-	</script>
 
 </head>
 
@@ -49,7 +38,7 @@
 
 					<div class="icon">
 						<a href="index.html"><img id="wcd-icon" src="images/icon_no_text.png"></a><br>
-						<button class="lines-button x" type="button" role="button" aria-label="Toggle Navigation">
+						<button class="lines-button x" type="button" role="button" aria-label="Toggle Navigation" data-bind="click: showMobileNav">
 						  <span class="lines"></span>
 						</button>
 					</div>
@@ -58,36 +47,196 @@
 				<div class="header-nav">
 					<ul class="nav">
 						<li><a href="media.html">Media</a></li>
-						<li><a href="build.html">Build</a></li>
+						<li><a href="build.html">Custom Build</a></li>
 						<li><a href="order.html">Order Status</a></li>
 					</ul>
 				</div>
 			</div>
 		</header>
 
-		<form id="buildIt">
-			<label for="totalCost">Total Cost: </label><input id="totalCost" type="text" value="">
-			<button>Submit</button>
-		</form>
+		<div class="build-container">
 
-		<script id ="payNow" data-env="sandbox" data-shipping="10.00" data-amount="150" data-name="Jewelry Box"
-	    data-button="buynow" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=nick_woodland@hotmail.com" async="async"
-		></script>
+			<h2>Build Your Box</h2>
+
+			<div class="build-section group">
+				<div class="label">
+					<label for="wood-species">Wood Type:</label>
+				</div>
+
+				<div class="selection">
+					<select id="wood-species">
+						<option value="185">Walnut</option>
+						<option value="135">Mahogany</option>
+					</select>
+				</div>
+
+				<div class="image-view">
+					<img id="wood-species-image" src="images/walnut.png" width="100">
+				</div>
+			</div>
+
+			<div class="build-section group">
+				<div class="label">
+					<label for="inlay">Inlay:</label>
+				</div>
+
+				<div class="selection">
+					<select id="inlay">
+						<option value="0">No Inlay</option>
+						<option value="50">Walnut, Maple, Ebony: add $50</option>
+						<option value="50">Ebony, Maple: add $50</option>
+					</select>
+				</div>
+
+				<div class="image-view">
+					<img id="inlay-image" src="images/box10.jpg" width="100">
+				</div>
+			</div>
+
+			<div class="build-section group">
+				<div class="label">
+					<label for="felt">Felt Color:</label>
+				</div>
+
+				<div class="selection">
+					<select id="felt">
+						<option value="0">Black</option>
+						<option value="5">Red: add $5</option>
+					</select>
+				</div>
+
+				<div class="image-view">
+					<img id="felt-image" src="images/box11.jpg" width="100">
+				</div>
+			</div>
+
+			<div class="build-section group">
+				<div class="label">
+					<label for="mirror">Mirror:</label>
+				</div>
+
+				<div class="selection">
+					<select id="mirror">
+						<option value="0">No</option>
+						<option value="50">Yes: add $50</option>
+					</select>
+				</div>
+
+				<div class="image-view">
+					<img id="felt-image" src="images/box7.jpg" width="100">
+				</div>
+			</div>
+
+			<div class="build-section group">
+				<div class="label">
+					<label for="lid">Lid Type:</label>
+				</div>
+
+				<div class="selection">
+					<select id="lid">
+						<option value="15">Frame and Panel: add $15</option>
+						<option value="0">Flat</option>
+						<option value="0">Etc</option>
+					</select>
+				</div>
+
+				<div class="image-view">
+					<img id="felt-image" src="images/box6.jpg" width="100">
+				</div>
+			</div>
+
+			<div class="build-section group">
+				<div class="label">
+					<label for="size">Size:</label>
+				</div>
+
+				<div class="selection">
+					<select id="size">
+						<option value="0">Medium: 8" x 12"</option>
+						<option value="25">Large: 10" x 14" add $25</option>
+						<option value="0">Small: 6.5" x 9.5"</option>
+					</select>
+				</div>
+
+				<div class="image-view">
+					<img id="felt-image" src="images/box5.jpg" width="100">
+				</div>
+			</div>
+
+
+			<h2>Total Cost: </h2>
+
+			<div class="build-section group">
+				<div class="label">
+					<p>$<span id="totalCost">200</span></p>
+				</div>
+
+				<div class="image-view">
+					<script id ="payNow" data-env="sandbox" data-shipping="10.00" data-amount="150" data-name="Jewelry Box"
+				    data-button="buynow" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=nick@wispcreekdesign.com" async="async"
+					></script>
+				</div>
+			</div>
+
+		</div>
 
 	</div>
 
+  <script src="js/jquery.min.js"></script>
+	<script src="js/knockout.js"></script>
 	<script src="js/app.min.js"></script>
 	<script>
-		$('#buildIt').submit(buyIt);
 
+		$('#wood-species').change(function() {
+			if ($('#wood-species option:selected').text() === "Mahogany") {
+				$('#wood-species-image').attr("src", "images/mahogany.png");
+			} else {
+				$('#wood-species-image').attr("src", "images/walnut.png");
+			}
+		});
+
+		$('select').change(buyIt);
+		$(document).ready(buyIt);
 		function buyIt() {
 			// Get value from the input
-			var value = $('#totalCost').val();
+			var wood = parseInt($('#wood-species').val());
+			var inlay = parseInt($('#inlay').val());
+			var felt = parseInt($('#felt').val());
+			var mirror = parseInt($('#mirror').val());
+			var lid = parseInt($('#lid').val());
+			var size = parseInt($('#size').val());
+			var value = wood + inlay + felt + mirror + lid + size;
+
+			var woodChoice = $('#wood-species option:selected').text();
+			var inlayChoice = $('#inlay option:selected').text();
+			var feltChoice = $('#felt option:selected').text();
+			var mirrorChoice = $('#mirror option:selected').text();
+			var lidChoice = $('#lid option:selected').text();
+			var sizeChoice = $('#size option:selected').text();
+			var valueText = "Jewelry Box - Wood: " + woodChoice + ". Inlay: " + inlayChoice + ". Felt: " +
+											feltChoice + ". Mirror: " + mirrorChoice + ". Lid: " + lidChoice + ". Size: " + sizeChoice;
+			$('#totalCost').text(value);
 			// Sets the value of the hidden form field that the paypal button script above creates
 			$('input[name="amount"]').val(value);
-			$('.paypal-button').show();
+			$('input[name="item_name"]').val(valueText);
+
+			console.log(valueText);
+
 			return false;
 		}
+
+		// Header styling changes on Scroll
+	  $(document).scroll(function() {
+	  	if ( $(this).scrollTop() > 25 ) {
+	  		$('.icon').css('display', 'none');
+	  		$('.nav li').css('line-height', '47px');
+	  		$('header').css('border-bottom', '1px solid #e9e9e9');
+	  	} else if ( $(this).scrollTop() === 0 ) {
+	  		$('.icon').css('display', 'inline-block');
+	  		$('.nav li').css('line-height', '74px');
+	  		$('header').css('border-bottom', 'none');
+	  	}
+	  });
 
 	</script>
 

@@ -14,11 +14,16 @@ body {
 	font-family: 'Raleway', sans-serif;
 	.wrapper {
 		width: 100%;
-		margin-top: 85px;
 	}
 	.wrapper-page {
 		margin-top: 125px;
 	}
+}
+
+.group:after {
+	content: " ";
+	display: table;
+	clear: both;
 }
 
 header {
@@ -66,17 +71,17 @@ header {
 			text-align: right;
 			> li {
 				line-height: 74px;
-				padding-left: 50px;
+				padding-left: 15px;
 				display: inline-block;
-				color: #d3d3d3;
+				color: #fff;
 				text-transform: uppercase;
-				font-size: 1.125em;
+				font-size: 1em;
 				font-weight: 700;
 				> a {
 					text-decoration: none;
 					color: inherit;
 					&:hover {
-						color: #fff;
+						color: #1080dd;
 					}
 				}
 			}
@@ -91,7 +96,49 @@ header {
 	}
 }
 
+.photo-container {
+	width: 60%;
+	margin: 0 auto;
+	.photo-form-section {
+		width: 100%;
+		padding: 5px 0;
+		.title {
+			float: left;
+		}
+		.form {
+			float: right;
+			text-align: right;
+		}
+	}
+	.photo-thumbs-section {
+		width: 100%;
+		.photo-thumbs {
+			list-style-type: none;
+			padding-left: 0;
+			li {
+				display: inline-block;
+				width: 175px;
+				margin-right: 5px;
+				> a p {
+					margin: 0 0 20px 0;
+					padding: 0;
+				}
+				> img {
+					max-width: 100%;
+					max-height: 100%;
+				}
+			}
+		}
+	}
+}
 
+select,
+input[type="text"] {
+	padding: 5px;
+	/*width: 150px;*/
+	font-family: "Raleway";
+	font-size: 1.125em;
+}
 
 p span {
 	color: red;
@@ -131,12 +178,34 @@ p span {
 }
 
 .tagline {
-	margin-left: 12.5%;
+	margin: 175px 12.5% 0 12.5%;
+	width: 75%;
 	padding-top: 3px;
-	> p {
+	text-align: center;
+	> h2 {
+		color: #fff;
+		font-size: 52px;
+		font-weight: 400;
+	  font-family: 'Shadows Into Light', cursive;
+	}
+	> h3 {
+		color: #fff;
+		font-weight: 400;
+		font-size: 1.125em;
+		font-family: 'Lato';
+	}
+	> a {
+		padding: 15px;
+		margin: 10px;
+		background: #f09609;
 		color: #fff;
 		font-weight: 700;
-		font-size: .7em;
+		border-radius: 5px;
+		text-decoration: none;
+		display: inline-block;
+		&:hover {
+			background: #d88708;
+		}
 	}
 }
 
@@ -182,6 +251,29 @@ p span {
 	video {
 		width: 75%;
 		margin-bottom: 50px;
+	}
+}
+
+.build-container {
+	width: 50%;
+	margin: 0 auto;
+	> h2 {
+		color: $blue;
+		padding-bottom: 10px;
+		margin-bottom: 35px;
+		border-bottom: 1px solid #000;
+	}
+	.selection,
+	.label {
+		float: left;
+	}
+	.label {
+		width: 125px;
+		color: #888;
+		font-size: 1.125em;
+	}
+	.image-view {
+		float: right;
 	}
 }
 
@@ -236,11 +328,13 @@ p span {
 	}
 
 	header .header-nav .nav li {
-		padding-left: 35px;
+		padding-left: 15px;
 	}
 
-	.tagline {
-		margin-left: 10px;
+	.photo-container,
+	.build-container {
+		width: 100%;
+		padding: 0 15px;
 	}
 }
 
@@ -291,8 +385,42 @@ p span {
 		padding: 15px 5px;
 	}
 
-	.tagline {
-		display: none;
+	.photo-container {
+		margin-top: -25px;
+	}
+
+	.photo-container .photo-thumbs-section .photo-thumbs li {
+		display: block;
+		width: 100%;
+	}
+
+	.photo-container .photo-thumbs-section .photo-thumbs li a p {
+		margin-bottom: 20px;
+	}
+
+	.photo-container .photo-form-section .title {
+		width: 100%
+	}
+
+	.photo-container .photo-form-section .form {
+		float: left;
+		width: 100%;
+		text-align: left;
+	}
+
+	.photo-container .photo-form-section .form input {
+		margin-top: 0;
+	}
+
+	.build-container .image-view {
+		width: 100%;
+		float: left;
+		margin-bottom: 10px;
+	}
+
+	.build-container .label,
+	.build-container .selection {
+		width: 100%;
 	}
 }
 

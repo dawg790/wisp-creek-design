@@ -1,10 +1,10 @@
 /* increase this to see the transformations in slow-motion */
-button {
+.lines-button {
   border: none;
   background: none;
   display: block;
   margin-bottom: 10px; }
-  button:focus {
+  .lines-button:focus {
     outline: 0; }
 
 .lines-button {

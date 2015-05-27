@@ -1,36 +1,15 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1"><title>Wisp Creek Design | Jewelry Box</title><link href="http://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css"><link rel="stylesheet" href="css/main.min.css"><link rel="stylesheet" type="text/css" href="css/navicon.min.css"></head><body><div class="wrapper"><header><div class="header-content group"><div class="header-title"><h1><a href="index.html">WISP CREEK <span>DESIGN</span></a></h1><div class="icon"><a href="index.html"><img id="wcd-icon" src="images/icon_no_text.png"></a><br><button class="lines-button x" type="button" role="button" aria-label="Toggle Navigation"><span class="lines"></span></button></div></div><div class="header-nav"><ul class="nav"><li><a href="media.html">Media</a></li><li><a href="build.html">Build</a></li><li><a href="order.html">Order Status</a></li></ul></div></div></header><div class="tagline"><p>Featuring handmade, fine furniture from our woodworking shop in Bailey, Colorado. We feature walnut jewelry boxes.</p></div><div class="arrows"><a href="#"><img id="left" src="images/left-arrow.png"></a> <a href="#"><img id="right" src="images/right-arrow.png"></a></div><div class="underlay"><img id="bgPic" src="images/stock.jpg"></div></div><script src="js/jquery.min.js"></script><script src="js/app.min.js"></script><script>$('#left').click(function() {
-	  	leftScroll();
-	  });
+<!-- TODO:
+  -- Add buttons to home screen: Build Your Box, See the Box
+  -- Add a better tagline/blurb to the home screen
+  -- Option to request a different piece of furniture via an email
+  -- Add ability to buy 'in-stock' items - not just the custom build
+--><!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1"><title>Wisp Creek Design | Jewelry Box</title><link href="http://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css"><link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css"><link href="http://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet" type="text/css"><link rel="stylesheet" href="css/main.min.css"><link rel="stylesheet" type="text/css" href="css/navicon.min.css"></head><body><div class="wrapper"><header><div class="header-content group"><div class="header-title"><h1><a href="index.html">WISP CREEK <span>DESIGN</span></a></h1><div class="icon"><a href="index.html"><img id="wcd-icon" src="images/icon_no_text.png"></a><br><button class="lines-button x" type="button" role="button" aria-label="Toggle Navigation" data-bind="click: showMobileNav"><span class="lines"></span></button></div></div><div class="header-nav"><ul class="nav"><li><a href="media.html">Media</a></li><li><a href="build.html">Custom Build</a></li><li><a href="order.html">Order Status</a></li></ul></div></div></header><div class="tagline"><h2>Handmade Jewelry Boxes</h2><h3>Featuring handmade, walnut or mahogany jewelry boxes from our woodworking shop in Bailey, Colorado.</h3><a href="build.html">Build a Box</a> <a href="#">See our Inventory</a></div><div class="arrows"><a href="#"><img id="left" src="images/left-arrow.png" data-bind="click: leftScroll"></a> <a href="#"><img id="right" src="images/right-arrow.png" data-bind="click: rightScroll"></a></div><div class="underlay"><img id="bgPic" src="images/box3.jpg"></div></div><script src="js/jquery.min.js"></script><script src="js/knockout.js"></script><script src="js/app.min.js"></script><script>var w = window,
+				d = document,
+				e = d.documentElement,
+				g = d.getElementsByTagName('body')[0],
+				x = w.innerWidth || e.clientWidth || g.clientWidth,
+				y = w.innerHeight || e.clientHeight || g.clientHeight;
 
-	  $('#right').click(function() {
-	  	rightScroll();
-	  });
+    $('.tagline').css('marginTop', (y / 2) - 160);
 
-	  var count = 0;
-	  var pics = [
-	    "images/stock.jpg",
-	    "images/drawing.jpg",
-	    "images/splines.jpg",
-	    "images/dry_finish.jpg",
-	    "images/box_open_lg.png"
-	  ];
-
-	  // Scrolls through our pictures array, but stops incrementing if we reach the last picture
-	  function rightScroll() {
-	  	if (count < 4) {
-	  		count++;
-	  		$('#bgPic').attr('src', pics[count]);
-	  	} else if (count === 4) {
-	  		$('#bgPic').attr('src', pics[count]);
-	  	}
-	  }
-
-	  // Scrolls through as above but stops decrementing if we are at the first picture
-	  function leftScroll() {
-	  	if (count > 0) {
-	  		count--;
-	  		$('#bgPic').attr('src', pics[count]);
-	  	} else if (count === 0) {
-	  		$('#bgPic').attr('src', pics[count]);
-	  	}
-	  }</script></body></html>
+		console.log((y / 2) - 160);</script></body></html>

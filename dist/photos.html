@@ -1,8 +1,39 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1"><title>Woodland Family Photos</title><link href="http://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css"><link rel="stylesheet" href="css/main.min.css"><link rel="stylesheet" type="text/css" href="css/navicon.min.css"><script>var albums = [
-      {
-      	"year": 2015,
-      	"url": "http://wispcreekdesign.com/blog/?p=1048",
-      	"thumb": "img/pic.jpg",
-      	"caption": "Album caption here."
-      }
-    ];</script></head><body><div class="wrapper"><div><h2>Woodland Family Photos</h2><form id="year"><select name="album-year"><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option></select></form></div></div></body></html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1"><title>Woodland Family Photos</title><link href="http://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css"><link rel="stylesheet" href="css/main.min.css"><link rel="stylesheet" type="text/css" href="css/navicon.min.css"><style>body {
+  		background: #e9e9e9;
+  	}
+
+  	body .wrapper {
+  		margin-top: 55px;
+  	}
+
+  	h1 {
+  		color: #1080dd;
+  	}
+
+  	h3 {
+  		margin: 0;
+  	}</style></head><body><div class="wrapper"><div class="photo-container"><h1>Woodland Family Photos</h1><div class="photo-form-section group"><div class="title"><h3>Photo Albums by Year</h3></div><div class="form"><select id="album-year" data-bind="options: allYears"></select><br></div></div><div class="photo-form-section group"><div class="title"><h3>Search</h3></div><div class="form"><input id="search" type="text" value="" placeholder="Search albums..."></div></div><div class="photo-form-section group"><div class="title"><h3>Filters</h3></div><div class="form"><input id="clear" type="button" value="Clear"> <input type="button" value="Family"> <input type="button" value="Adventures"></div></div><hr><div class="photo-thumbs-section"><p id="message"></p><ul class="photo-thumbs" data-bind="foreach: matchedItems"><li data-bind="attr: { class: filter }"><img data-bind="attr: { src: thumb }" width="150"> <a data-bind="attr: { href: url, title: caption }" target="_blank"><p data-bind="text: caption"></p></a></li></ul></div></div></div><script src="js/jquery.min.js"></script><script src="js/knockout.js"></script><script src="js/photos.min.js"></script><script>// Click event to clear the filters
+	$('#clear').click(function() {
+		$('li').each(function() {
+			$(this).show();
+		})
+	});
+
+	// Keyup event to search albums
+	$('#search').keyup(function() {
+
+		var value = $('#search').val();
+
+		// Found this replace function online to convert search term to Capital cased
+    value = value.toLowerCase().replace(/\b[a-z]/g, function (letter) {
+      return letter.toUpperCase();
+    });
+
+		$('li').each(function() {
+			if ($(this).text().search(value) > -1) {
+				$(this).show();
+			} else {
+				$(this).hide();
+			}
+		});
+	})</script></body></html>
