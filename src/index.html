@@ -44,7 +44,7 @@
 				<div class="header-nav">
 					<ul class="nav">
 						<li><a href="media.html">Media</a></li>
-						<li><a href="build.html">Custom Build</a></li>
+						<li><a href="build.html">Build</a></li>
 						<li><a href="order.html">Order Status</a></li>
 					</ul>
 				</div>
@@ -55,7 +55,7 @@
 			<h2>Handmade Jewelry Boxes</h2>
 			<h3>Featuring handmade, walnut or mahogany jewelry boxes from our woodworking shop in Bailey, Colorado.</h3>
 			<a href="build.html">Build a Box</a>
-			<a href="#">See our Inventory</a>
+			<a href="media.html">See our Inventory</a>
 		</div>
 
 		<div class="arrows">
@@ -80,9 +80,15 @@
 				x = w.innerWidth || e.clientWidth || g.clientWidth,
 				y = w.innerHeight || e.clientHeight || g.clientHeight;
 
-    $('.tagline').css('marginTop', (y / 2) - 160);
+		// Set the initial value of the tagline's margin to half the height of the window, minus half the height of the element
+		$('.tagline').css("marginTop", (y / 2) - 160);
 
-		console.log((y / 2) - 160);
+		// When the browser window is resized, update the tagline's margin using jQuery's .resize() method
+    $(window).resize(function() {
+    	y = w.innerHeight || e.clientHeight || g.clientHeight;
+    	$('.tagline').css('marginTop', (y / 2) - 160);
+    });
+
 
   </script>
 

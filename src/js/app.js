@@ -103,6 +103,7 @@ var ViewModel = function () {
 	self.showMobileNav = function () {
 		$('.lines-button').toggleClass('close');
 		$('header .header-content .header-nav .nav').toggleClass('open');
+		$('.tagline').fadeToggle();
 	};
 
 };

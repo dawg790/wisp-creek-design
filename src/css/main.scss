@@ -71,7 +71,7 @@ header {
 			text-align: right;
 			> li {
 				line-height: 74px;
-				padding-left: 15px;
+				padding-left: 35px;
 				display: inline-block;
 				color: #fff;
 				text-transform: uppercase;
@@ -197,8 +197,8 @@ p span {
 	> a {
 		padding: 15px;
 		margin: 10px;
-		background: #f09609;
-		color: #fff;
+		background: linear-gradient(to bottom, #f09609, #c07807);
+		color: #000;
 		font-weight: 700;
 		border-radius: 5px;
 		text-decoration: none;
@@ -328,7 +328,7 @@ p span {
 	}
 
 	header .header-nav .nav li {
-		padding-left: 15px;
+		padding-left: 25px;
 	}
 
 	.photo-container,
@@ -378,7 +378,7 @@ p span {
 	header .header-nav .nav li {
 		font-size: .9em;
 		line-height: 40px;
-		padding-left: 10px;
+		padding-left: 15px;
 		display: block;
 	}
 	header .header-nav .nav li a {
@@ -429,6 +429,14 @@ p span {
 	header .header-nav .nav li {
 		font-size: .8em;
 		padding-left: 15px;
+	}
+
+	.tagline h2 {
+		font-size: 32px;
+	}
+
+	.tagline h3 {
+		font-size: 1em;
 	}
 
 	#right,
