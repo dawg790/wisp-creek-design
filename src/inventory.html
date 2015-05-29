@@ -10,24 +10,8 @@
 
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/main.min.css">
   <link rel="stylesheet" type="text/css" href="css/navicon.min.css">
-
-  <style>
-  	.inventory-section {
-  		width: 55%;
-  		margin: 0 auto;
-  	}
-		.inventory-details {
-			float: right;
-		}
-
-		.inventory-image {
-			float: left;
-		}
-
-  </style>
 
 </head>
 
@@ -59,18 +43,53 @@
 		</header>
 
 		<div class="inventory-section group">
-			<div class="inventory-image">
-				<ul data-bind="foreach: inventory">
-					<li><img data-bind="attr: { src: image }" width="250"></li>
-				</ul>
+
+			<div class="heading">
+				<p>Inventory</p>
 			</div>
 
-			<div class="inventory-details">
-				<ul data-bind="foreach: inventory">
-					<li data-bind="text: wood"></li>
-				</ul>
+			<!-- <ul data-bind="foreach: inventory">
+				<li>
+					<a data-bind="attr: { href: image }">
+					  <img data-bind="attr: { src: image }" height="150">
+					</a>
+				  <p>Wood: <span data-bind="text: wood"></span></p>
+					<p>Inlay: <span data-bind="text: inlay"></span></p>
+					<p>Felt Color: <span data-bind="text: felt"></span></p>
+					<p>Size: <span data-bind="text: size"></span></p>
+					<p>Price: <span data-bind="text: cost"></span></p>
+					<p>In Stock: <span data-bind="text: stock"></span></p>
+				</li>
+			</ul> -->
 
-			</div>
+			<ul>
+				<li>
+					<a href="images/box14.jpg"><img src="images/box14.jpg" height="150"></a>
+					<p>Wood: <span>Walnut</span></p>
+					<p>Inlay: <span>No</span></p>
+					<p>Felt Color: <span>Black</span></p>
+					<p>Size: <span>Medium 8" x 12"</span></p>
+					<p>Price: <span>$200</span></p>
+					<p>In Stock: <span>5</span></p>
+					<script data-env="sandbox" data-shipping="10.00" data-amount="200" data-name="Jewelry Box"
+				    data-button="buynow" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=nick@wispcreekdesign.com" async="async"
+					></script>
+				</li>
+
+				<li>
+					<a href="images/box15.jpg"><img src="images/box15.jpg" height="150"></a>
+					<p>Wood: <span>Walnut</span></p>
+					<p>Inlay: <span>Yes</span></p>
+					<p>Felt Color: <span>Black</span></p>
+					<p>Size: <span>Medium 8" x 12"</span></p>
+					<p>Price: <span>$250</span></p>
+					<p>In Stock: <span>1</span></p>
+					<script data-env="sandbox" data-shipping="10.00" data-amount="250" data-name="Jewelry Box"
+				    data-button="buynow" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=nick@wispcreekdesign.com" async="async"
+					></script>
+				</li>
+			</ul>
+
 
 		</div>
 

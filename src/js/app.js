@@ -21,20 +21,22 @@ var orders = [
 
 var inventory = [
   {
-    "image": "images/box3.jpg",
+    "image": "images/box15.jpg",
     "wood": "Walnut",
     "inlay": "Yes",
     "felt": "Black",
     "size": "Medium: 8 x 12",
-    "cost": "$250",
+    "cost": "250",
+    "stock": "5"
   },
   {
-    "image": "images/box5.jpg",
-    "wood": "Mahogany",
-    "inlay": "Yes",
-    "felt": "Red",
-    "size": "Medium: 8 x 12",
-    "cost": "$200",
+    "image": "images/box14.jpg",
+    "wood": "Walnut",
+    "inlay": "No",
+    "felt": "Black",
+    "size": "Large: 10 x 14",
+    "cost": "215",
+    "stock": "2"
   }
 ];
 
@@ -125,6 +127,7 @@ var ViewModel = function () {
     $('.tagline').fadeToggle();
   };
 
+
 };
 
 
@@ -142,3 +145,20 @@ var w = window,
 	y = w.innerHeight || e.clientHeight || g.clientHeight;
 console.log(x);
 console.log(y);
+
+// Header styling changes on Scroll
+$(document).scroll(function() {
+	if ( $(this).scrollTop() > 25 ) {
+		$('.icon').css('display', 'none');
+		$('.nav li').css('line-height', '47px');
+		$('header').css('border-bottom', '1px solid #e9e9e9');
+	} else if ( $(this).scrollTop() === 0 && x > 550) {
+		$('.icon').css('display', 'inline-block');
+		$('.nav li').css('line-height', '74px');
+		$('header').css('border-bottom', 'none');
+	} else if ( $(this).scrollTop() === 0 && x < 550) {
+		$('.icon').css('display', 'inline-block');
+		$('.nav li').css('line-height', '47px');
+		$('header').css('border-bottom', 'none');
+	}
+});

@@ -143,13 +143,14 @@ p span {
   text-align: center; }
   .tagline > h2 {
     color: #fff;
+    margin: 10px;
     font-size: 52px;
     font-weight: 400;
     font-family: 'Shadows Into Light', cursive; }
   .tagline > h3 {
     color: #fff;
     font-weight: 400;
-    font-size: 1.125em;
+    font-size: 1.175em;
     font-family: 'Lato'; }
   .tagline > a {
     padding: 15px;
@@ -255,6 +256,18 @@ p span {
     font-size: 18px;
     color: #888; }
 
+.inventory-section {
+  width: 75%;
+  margin: 0 auto; }
+  .inventory-section > ul {
+    list-style-type: none; }
+    .inventory-section > ul > li {
+      display: inline-block;
+      margin: 10px; }
+      .inventory-section > ul > li > p {
+        margin: 0;
+        padding: 3px; }
+
 @media screen and (max-width: 1110px) {
   header .header-content {
     width: 100%;
@@ -288,11 +301,13 @@ p span {
   header .header-content .header-nav .nav {
     text-align: center;
     height: 0%;
+    visibility: hidden;
     opacity: 0; }
 
   header .header-content .header-nav .open {
     height: 100%;
     opacity: 1;
+    visibility: visible;
     transition: 1s ease; }
 
   header .header-content h1 {
@@ -335,6 +350,9 @@ p span {
 
   .build-container .label,
   .build-container .selection {
+    width: 100%; }
+
+  .inventory-section {
     width: 100%; } }
 @media screen and (max-width: 550px) {
   header .header-nav .nav li {
