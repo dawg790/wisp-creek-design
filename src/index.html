@@ -44,6 +44,8 @@
 
 				<div class="header-nav">
 					<ul class="nav">
+						<li><a class="selected" href="index.html">Home</a></li>
+						<li><a href="inventory.html">Inventory</a></li>
 						<li><a href="media.html">Media</a></li>
 						<li><a href="build.html">Build</a></li>
 						<li><a href="order.html">Order Status</a></li>
@@ -65,7 +67,7 @@
 		</div>
 
 	  <div class="underlay">
-	    <img id="bgPic" src="images/box3.jpg">
+	    <img id="bgPic" src="images/build1.jpg">
 	  </div>
   </div>
 
@@ -81,13 +83,22 @@
 				x = w.innerWidth || e.clientWidth || g.clientWidth,
 				y = w.innerHeight || e.clientHeight || g.clientHeight;
 
-		// Set the initial value of the tagline's margin to half the height of the window, minus half the height of the element
-		$('.tagline').css("marginTop", (y / 2) - 160);
+		/* Set the initial value of the tagline's margin to half the height of the window, minus half the height of the element
+		 * unless the window height is less than 525px, in that case set the margin to 100px fixed, so it doesn't overlap the header
+		 */
+		if (y > 525) {
+			$('.tagline').css("marginTop", (y / 2) - 160);
+		} else {
+			$('.tagline').css('marginTop', '100px');
+		}
 
 		// When the browser window is resized, update the tagline's margin using jQuery's .resize() method
     $(window).resize(function() {
     	y = w.innerHeight || e.clientHeight || g.clientHeight;
-    	$('.tagline').css('marginTop', (y / 2) - 160);
+    	if (y > 525) {
+    		$('.tagline').css('marginTop', (y / 2) - 160);
+    	} else (
+    		$('.tagline').css('marginTop', '100px'));
     });
 
 

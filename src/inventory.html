@@ -15,7 +15,7 @@
 
 </head>
 
-<body>
+<body style="background: #eee;">
 
 	<div class="wrapper wrapper-page">
 
@@ -34,6 +34,8 @@
 
 				<div class="header-nav">
 					<ul class="nav">
+						<li><a href="index.html">Home</a></li>
+						<li><a class="selected" href="inventory.html">Inventory</a></li>
 						<li><a href="media.html">Media</a></li>
 						<li><a href="build.html">Build</a></li>
 						<li><a href="order.html">Order Status</a></li>
@@ -48,48 +50,68 @@
 				<p>Inventory</p>
 			</div>
 
-			<!-- <ul data-bind="foreach: inventory">
-				<li>
-					<a data-bind="attr: { href: image }">
-					  <img data-bind="attr: { src: image }" height="150">
-					</a>
-				  <p>Wood: <span data-bind="text: wood"></span></p>
-					<p>Inlay: <span data-bind="text: inlay"></span></p>
-					<p>Felt Color: <span data-bind="text: felt"></span></p>
-					<p>Size: <span data-bind="text: size"></span></p>
-					<p>Price: <span data-bind="text: cost"></span></p>
-					<p>In Stock: <span data-bind="text: stock"></span></p>
-				</li>
-			</ul> -->
+			<div class="inventory-container group">
+				<div class="inventory-viewer">
+					<a href="images/box6.jpg"><img src="images/box6.jpg"></a>
+				</div>
 
-			<ul>
-				<li>
-					<a href="images/box14.jpg"><img src="images/box14.jpg" height="150"></a>
-					<p>Wood: <span>Walnut</span></p>
-					<p>Inlay: <span>No</span></p>
-					<p>Felt Color: <span>Black</span></p>
-					<p>Size: <span>Medium 8" x 12"</span></p>
-					<p>Price: <span>$200</span></p>
-					<p>In Stock: <span>5</span></p>
-					<script data-env="sandbox" data-shipping="10.00" data-amount="200" data-name="Jewelry Box"
-				    data-button="buynow" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=nick@wispcreekdesign.com" async="async"
-					></script>
-				</li>
+				<div class="inventory-info">
+					<div class="inventory-stats">
+						<ul>
+							<li><p>Price: <span>$250</span></p></li>
+							<li><p>Wood: <span>Walnut</span></p></li>
+							<li><p>Inlay: <span style="font-size: .7em">Ebony, Walnut & Maple</span></p></li>
+							<li><p>Felt Color: <span>Black</span></p></li>
+							<li><p>Size: <span>Medium 8" x 12"</span></p></li>
+							<li><p>In Stock: <span>1</span></p></li>
+						</ul>
+					</div>
+					<div class="inventory-pics">
+						<p><em>Click thumbs to enlarge</em></p>
+						<img src="images/box6.jpg" width="85">
+						<img src="images/box7.jpg" width="85">
+						<img src="images/box8.jpg" width="85">
+						<img src="images/lid2.jpg" width="85">
+					</div>
+					<div class="inventory-buy">
+						<script data-env="sandbox" data-shipping="10.00" data-amount="250" data-name="Jewelry Box"
+				    	data-button="buynow" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=nick@wispcreekdesign.com" async="async"
+						></script>
+					</div>
+				</div>
+			</div>
 
-				<li>
-					<a href="images/box15.jpg"><img src="images/box15.jpg" height="150"></a>
-					<p>Wood: <span>Walnut</span></p>
-					<p>Inlay: <span>Yes</span></p>
-					<p>Felt Color: <span>Black</span></p>
-					<p>Size: <span>Medium 8" x 12"</span></p>
-					<p>Price: <span>$250</span></p>
-					<p>In Stock: <span>1</span></p>
-					<script data-env="sandbox" data-shipping="10.00" data-amount="250" data-name="Jewelry Box"
-				    data-button="buynow" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=nick@wispcreekdesign.com" async="async"
-					></script>
-				</li>
-			</ul>
+			<!-- TEMPLATE FOR INVENTORY ITEM
+			<div class="inventory-container group">
+				<div class="inventory-viewer">
+					<a href="PICTURE SOURCE HERE"><img src="PICTURE SOURCE HERE"></a>
+				</div>
 
+				<div class="inventory-info">
+					<div class="inventory-stats">
+						<ul>
+							<li><p>Price: <span>TOTAL AMOUNT</span></p></li>
+							<li><p>Wood: <span>WOOD TYPE</span></p></li>
+							<li><p>Inlay: <span>YES or NO</span></p></li>
+							<li><p>Felt Color: <span>BLACK or RED</span></p></li>
+							<li><p>Size: <span>Medium 8" x 12"</span></p></li>
+							<li><p>In Stock: <span>5</span></p></li>
+						</ul>
+					</div>
+					<div class="inventory-pics">
+						<p><em>Click thumbs to enlarge</em></p>
+						<img src="PICTURE SOURCE HERE" width="85">
+						<img src="PICTURE SOURCE HERE" width="85">
+						<img src="PICTURE SOURCE HERE" width="85">
+						<img src="PICTURE SOURCE HERE" width="85">
+					</div>
+					<div class="inventory-buy">
+						<script data-env="sandbox" data-shipping="10.00" data-amount="TOTAL AMOUNT GOES HERE" data-name="Jewelry Box"
+				    	data-button="buynow" src="https://www.paypalobjects.com/js/external/paypal-button.min.js?merchant=nick@wispcreekdesign.com" async="async"
+						></script>
+					</div>
+				</div>
+			</div> -->
 
 		</div>
 
@@ -98,6 +120,18 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="js/knockout.js"></script>
 	<script src="js/app.min.js"></script>
+
+	<script>
+	$('.inventory-pics img').click(function() {
+		var source = $(this).attr('src');
+		var $aTag = $(this).parent().parent().prev().children();
+		var $imgTag = $(this).parent().parent().prev().children().children();
+
+		$imgTag.attr('src', source);
+		$aTag.attr('href', source);
+	});
+
+	</script>
 
 </body>
 

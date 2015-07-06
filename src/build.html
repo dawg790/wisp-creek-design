@@ -46,8 +46,10 @@
 
 				<div class="header-nav">
 					<ul class="nav">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="inventory.html">Inventory</a></li>
 						<li><a href="media.html">Media</a></li>
-						<li><a href="build.html">Build</a></li>
+						<li><a class="selected" href="build.html">Build</a></li>
 						<li><a href="order.html">Order Status</a></li>
 					</ul>
 				</div>
@@ -83,30 +85,30 @@
 				<div class="selection">
 					<select id="inlay">
 						<option value="0">No Inlay</option>
-						<option value="50">Walnut, Maple, Ebony: add $50</option>
-						<option value="50">Ebony, Maple: add $50</option>
+						<option value="50">Walnut,Maple,Ebony +$50</option>
+						<option value="50">Ebony,Maple +$50</option>
 					</select>
 				</div>
 
 				<div class="image-view">
-					<img id="inlay-image" src="images/inlay1.jpg" width="100">
+					<img id="inlay-image" src="images/blank.jpg" width="100">
 				</div>
 			</div>
 
 			<div class="build-section group">
 				<div class="label">
-					<label for="felt">Felt Color:</label>
+					<label for="felt">Velvet Color:</label>
 				</div>
 
 				<div class="selection">
-					<select id="felt">
+					<select id="velvet">
 						<option value="0">Black</option>
-						<option value="5">Red: add $5</option>
+						<option value="5">Red: +$5</option>
 					</select>
 				</div>
 
 				<div class="image-view">
-					<img id="felt-image" src="images/box11.jpg" width="100">
+					<img id="velvet-image" src="images/black.jpg" width="100">
 				</div>
 			</div>
 
@@ -118,30 +120,12 @@
 				<div class="selection">
 					<select id="mirror">
 						<option value="0">No</option>
-						<option value="50">Yes: add $50</option>
+						<option value="50">Yes: +$50</option>
 					</select>
 				</div>
 
 				<div class="image-view">
-					<img id="felt-image" src="images/box7.jpg" width="100">
-				</div>
-			</div>
-
-			<div class="build-section group">
-				<div class="label">
-					<label for="lid">Lid Type:</label>
-				</div>
-
-				<div class="selection">
-					<select id="lid">
-						<option value="15">Frame and Panel: add $15</option>
-						<option value="0">Flat</option>
-						<option value="0">Etc</option>
-					</select>
-				</div>
-
-				<div class="image-view">
-					<img id="felt-image" src="images/box6.jpg" width="100">
+					<img id="mirror-image" src="images/box7.jpg" width="100">
 				</div>
 			</div>
 
@@ -153,13 +137,13 @@
 				<div class="selection">
 					<select id="size">
 						<option value="0">Medium: 8" x 12"</option>
-						<option value="25">Large: 10" x 14" add $25</option>
+						<option value="25">Large: 10" x 14" +$25</option>
 						<option value="0">Small: 6.5" x 9.5"</option>
 					</select>
 				</div>
 
 				<div class="image-view">
-					<img id="felt-image" src="images/box5.jpg" width="100">
+					<img id="size-image" src="images/box5.jpg" width="100">
 				</div>
 			</div>
 
@@ -167,7 +151,7 @@
 			<h2>Total Cost: </h2>
 
 			<div class="build-section group">
-				<div class="label">
+				<div class="cost-holder">
 					<p>$<span id="totalCost">200</span></p>
 				</div>
 
@@ -177,6 +161,8 @@
 					></script>
 				</div>
 			</div>
+
+			<p class="inventory-notice">Or view our current <a href="inventory.html">Inventory</a></p>
 
 		</div>
 
@@ -196,10 +182,20 @@
 		});
 
 		$('#inlay').change(function() {
-			if ($('#inlay option:selected').text() === "Walnut, Maple, Ebony: add $50") {
+			if ($('#inlay option:selected').text() === "Walnut,Maple,Ebony +$50") {
 				$('#inlay-image').attr("src", "images/inlay1.jpg");
-			} else if ($('#inlay option:selected').text() === "Ebony, Maple: add $50") {
+			} else if ($('#inlay option:selected').text() === "Ebony,Maple +$50") {
 				$('#inlay-image').attr("src", "images/inlay2.jpg");
+			} else {
+				$('#inlay-image').attr("src", "images/blank.jpg");
+			}
+		});
+
+		$('#velvet').change(function() {
+			if ($('#velvet option:selected').text() === "Red: +$5") {
+				$('#velvet-image').attr("src", "images/red.jpg");
+			} else if ($('#velvet option:selected').text() === "Black") {
+				$('#velvet-image').attr("src", "images/black.jpg");
 			}
 		});
 
@@ -209,20 +205,18 @@
 			// Get value from the input
 			var wood = parseInt($('#wood-species').val());
 			var inlay = parseInt($('#inlay').val());
-			var felt = parseInt($('#felt').val());
+			var velvet = parseInt($('#velvet').val());
 			var mirror = parseInt($('#mirror').val());
-			var lid = parseInt($('#lid').val());
 			var size = parseInt($('#size').val());
-			var value = wood + inlay + felt + mirror + lid + size;
+			var value = wood + inlay + velvet + mirror + size;
 
 			var woodChoice = $('#wood-species option:selected').text();
 			var inlayChoice = $('#inlay option:selected').text();
-			var feltChoice = $('#felt option:selected').text();
+			var velvetChoice = $('#velvet option:selected').text();
 			var mirrorChoice = $('#mirror option:selected').text();
-			var lidChoice = $('#lid option:selected').text();
 			var sizeChoice = $('#size option:selected').text();
-			var valueText = "Jewelry Box - Wood: " + woodChoice + ". Inlay: " + inlayChoice + ". Felt: " +
-											feltChoice + ". Mirror: " + mirrorChoice + ". Lid: " + lidChoice + ". Size: " + sizeChoice;
+			var valueText = "Jewelry Box - Wood: " + woodChoice + ". Inlay: " + inlayChoice + ". Velvet: " +
+											velvetChoice + ". Mirror: " + mirrorChoice + ". Size: " + sizeChoice;
 			$('#totalCost').text(value);
 			// Sets the value of the hidden form field that the paypal button script above creates
 			$('input[name="amount"]').val(value);

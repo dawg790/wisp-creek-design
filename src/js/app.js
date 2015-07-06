@@ -1,5 +1,10 @@
 
-// Our Customer Database
+/* Our Customer Database
+ *
+ * For a new order, add a new object to the orders database below
+ * For updates to an order, update the stats in each entry
+ * Take a picture of progress and add it to the src/images folder and run gulp images
+ */
 var orders = [
   {
     "firstName": "Nick",
@@ -7,7 +12,8 @@ var orders = [
     "orderNumber": "000001",
     "status": "In Progress",
     "completionDate": "July 1, 2015",
-    "notes": "Box is completed, first coat of Tung Oil has been applied."
+    "notes": "Box is completed, first coat of Tung Oil has been applied.",
+    "pic": "images/box9.jpg"
   },
   {
     "firstName": "Wendy",
@@ -15,28 +21,8 @@ var orders = [
     "orderNumber": "000002",
     "status": "Not Started Yet",
     "completionDate": "August 21, 2015",
-    "notes": "All the parts are planed and jointed and ready to be cut to size."
-  }
-];
-
-var inventory = [
-  {
-    "image": "images/box15.jpg",
-    "wood": "Walnut",
-    "inlay": "Yes",
-    "felt": "Black",
-    "size": "Medium: 8 x 12",
-    "cost": "250",
-    "stock": "5"
-  },
-  {
-    "image": "images/box14.jpg",
-    "wood": "Walnut",
-    "inlay": "No",
-    "felt": "Black",
-    "size": "Large: 10 x 14",
-    "cost": "215",
-    "stock": "2"
+    "notes": "All the parts are planed and jointed and ready to be cut to size.",
+    "pic": "images/box1.jpg"
   }
 ];
 
@@ -48,12 +34,12 @@ var ViewModel = function () {
 
   // Observable array to hold the home page picture href's
   self.homePagePics = ko.observableArray([
-    "images/box3.jpg",
-    "images/box1.jpg",
-    "images/stock.jpg",
-    "images/box6.jpg",
+    "images/build1.jpg",
+    "images/build4.jpg",
+    "images/shop1.jpg",
+    "images/shop2.jpg",
     "images/box_open_lg.png",
-    "images/box14.jpg"
+    "images/box7.jpg"
   ]);
 
   // When scrolling right, increment the counter and stop scrolling if reach the last image
@@ -102,6 +88,7 @@ var ViewModel = function () {
         $('.status span').text(self.allOrders()[i].status);
         $('.completion span').text(self.allOrders()[i].completionDate);
         $('.notes span').text(self.allOrders()[i].notes);
+        $('.pic img').attr('src', self.allOrders()[i].pic).attr('width', '300');
         found = true;
         break;
       }
@@ -115,6 +102,7 @@ var ViewModel = function () {
   // On click within the inputs, clear the Order Status input fields
   self.clearFields = function () {
     $('.status span, .completion span, .buyer span, .notes span').text("");
+    $('.pic img').attr('src', "").attr('width', '0');
     $('#order-num, #order-name').val("");
   };
 
