@@ -9,6 +9,7 @@
   <title>Wisp Creek Design | Build Your Box</title>
 
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/fa/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/main.min.css">
   <link rel="stylesheet" href="css/navicon.min.css">
 
@@ -46,8 +47,8 @@
 
 				<div class="header-nav">
 					<ul class="nav">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="inventory.html">Inventory</a></li>
+						<li><a href="index.html"><i class="fa fa-home fa-lg"></i></a></li>
+						<li><a href="store.html">Store</a></li>
 						<li><a href="media.html">Media</a></li>
 						<li><a class="selected" href="build.html">Build</a></li>
 						<li><a href="order.html">Order Status</a></li>
@@ -125,7 +126,7 @@
 				</div>
 
 				<div class="image-view">
-					<img id="mirror-image" src="images/box7.jpg" width="100">
+					<img id="mirror-image" src="images/blank.jpg" width="100">
 				</div>
 			</div>
 
@@ -162,7 +163,7 @@
 				</div>
 			</div>
 
-			<p class="inventory-notice">Or view our current <a href="inventory.html">Inventory</a></p>
+			<p class="inventory-notice">Or view our current <a href="store.html">Inventory</a></p>
 
 		</div>
 
@@ -196,6 +197,14 @@
 				$('#velvet-image').attr("src", "images/red.jpg");
 			} else if ($('#velvet option:selected').text() === "Black") {
 				$('#velvet-image').attr("src", "images/black.jpg");
+			}
+		});
+
+		$('#mirror').change(function() {
+			if ($('#mirror option:selected').text() === "Yes: +$50") {
+				$('#mirror-image').attr("src", "images/mirror.jpg");
+			} else if ($('#mirror option:selected').text() === "No") {
+				$('#mirror-image').attr("src", "images/blank.jpg");
 			}
 		});
 
