@@ -92,7 +92,7 @@
 				</div>
 
 				<div class="image-view">
-					<img id="inlay-image" src="images/blank.jpg" width="100">
+					<img id="inlay-image" src="images/none.png" width="100">
 				</div>
 			</div>
 
@@ -126,7 +126,7 @@
 				</div>
 
 				<div class="image-view">
-					<img id="mirror-image" src="images/blank.jpg" width="100">
+					<img id="mirror-image" src="images/none.png" width="100">
 				</div>
 			</div>
 
@@ -137,15 +137,13 @@
 
 				<div class="selection">
 					<select id="size">
-						<option value="0">Medium: 8" x 12"</option>
+						<option value="0">Standard: 8" x 12"</option>
 						<option value="25">Large: 10" x 14" +$25</option>
-						<option value="0">Small: 6.5" x 9.5"</option>
+						<!-- <option value="0">Small: 6.5" x 9.5"</option> -->
 					</select>
 				</div>
 
-				<div class="image-view">
-					<img id="size-image" src="images/box5.jpg" width="100">
-				</div>
+				<div class="image-view"></div>
 			</div>
 
 
@@ -188,7 +186,7 @@
 			} else if ($('#inlay option:selected').text() === "Ebony,Maple +$50") {
 				$('#inlay-image').attr("src", "images/inlay2.jpg");
 			} else {
-				$('#inlay-image').attr("src", "images/blank.jpg");
+				$('#inlay-image').attr("src", "images/none.png");
 			}
 		});
 
@@ -204,7 +202,7 @@
 			if ($('#mirror option:selected').text() === "Yes: +$50") {
 				$('#mirror-image').attr("src", "images/mirror.jpg");
 			} else if ($('#mirror option:selected').text() === "No") {
-				$('#mirror-image').attr("src", "images/blank.jpg");
+				$('#mirror-image').attr("src", "images/none.png");
 			}
 		});
 
