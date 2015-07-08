@@ -141,11 +141,11 @@ $(document).scroll(function() {
 		$('.nav li').css('line-height', '47px');
 		$('header').css('border-bottom', '1px solid #e9e9e9');
 	} else if ( $(this).scrollTop() === 0 && x > 550) {
-		$('.icon').css('display', 'inline-block');
+		$('.icon').css('display', 'block');
 		$('.nav li').css('line-height', '74px');
 		$('header').css('border-bottom', 'none');
 	} else if ( $(this).scrollTop() === 0 && x < 550) {
-		$('.icon').css('display', 'inline-block');
+		$('.icon').css('display', 'block');
 		$('.nav li').css('line-height', '47px');
 		$('header').css('border-bottom', 'none');
 	}
