@@ -103,7 +103,7 @@ header {
 }
 
 .photo-container {
-	width: 60%;
+	width: 80%;
 	margin: 0 auto;
 	.photo-form-section {
 		width: 100%;
@@ -114,6 +114,27 @@ header {
 		.form {
 			float: right;
 			text-align: right;
+			input[type=button] {
+				background: #25A6E1;
+				background: -webkit-linear-gradient(#25A6E1 0%, #188BC0 100%);
+				background: -o-linear-gradient(#25A6E1 0%, #188BC0 100%);
+				background: linear-gradient(#25A6E1 0%, #188BC0 100%);
+				/*filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#25A6E1',endColorstr='#188BC0',GradientType=0);*/
+				color: #fff;
+				padding: 1px 8px;
+				border: 1px solid #1A87B9;
+				border-radius: 5px;
+				outline: none;
+				margin: 5px 0;
+				&:hover {
+					cursor: pointer;
+					background: #1A87B9;
+					color: #ffff90;
+				}
+				&:active {
+					color: #000;
+				}
+			}
 		}
 	}
 	.photo-thumbs-section {
@@ -123,7 +144,7 @@ header {
 			padding-left: 0;
 			li {
 				display: inline-block;
-				width: 175px;
+				width: 18%;
 				margin-right: 5px;
 				> a p {
 					margin: 0 0 20px 0;
@@ -505,7 +526,7 @@ input[type="text"] {
 	}
 
 	.photo-container {
-		margin-top: -25px;
+		margin-top: -35px;
 	}
 
 	.photo-container .photo-thumbs-section .photo-thumbs li {

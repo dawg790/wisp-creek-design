@@ -12,8 +12,8 @@
 
   	h3 {
   		margin: 0;
-  	}</style></head><body><div class="wrapper"><div class="photo-container"><h1>Woodland Family Photos</h1><div class="photo-form-section group"><div class="title"><h3>Photo Albums by Year</h3></div><div class="form"><select id="album-year" data-bind="options: allYears"></select><br></div></div><div class="photo-form-section group"><div class="title"><h3>Search</h3></div><div class="form"><input id="search" type="text" value="" placeholder="Search albums..."></div></div><div class="photo-form-section group"><div class="title"><h3>Filters</h3></div><div class="form"><input id="clear" type="button" value="Clear"> <input type="button" value="Family"> <input type="button" value="Adventures"></div></div><hr><div class="photo-thumbs-section"><p id="message"></p><ul class="photo-thumbs" data-bind="foreach: matchedItems"><li data-bind="attr: { class: filter }"><img data-bind="attr: { src: thumb }" width="150"> <a data-bind="attr: { href: url, title: caption }" target="_blank"><p data-bind="text: caption"></p></a></li></ul></div></div></div><script src="js/jquery.min.js"></script><script src="js/knockout.js"></script><script src="js/photos.min.js"></script><script>// Click event to clear the filters
-	$('#clear').click(function() {
+  	}</style></head><body><div class="wrapper"><div class="photo-container"><h1>Woodland Family Photos</h1><div class="photo-form-section group"><div class="title"><h3>Photo Albums by Year</h3></div><div class="form"><select id="album-year" data-bind="options: allYears"></select><br></div></div><div class="photo-form-section group"><div class="title"><h3>Search</h3></div><div class="form"><input id="search" type="text" value="" placeholder="Search albums..."></div></div><div class="photo-form-section group"><div class="title"><h3>Tags</h3></div><div class="form"><input type="button" value="Family"> <input type="button" value="Adventures"> <input type="button" value="Travel"> <input type="button" value="Camping"> <input type="button" value="Sienna"> <input type="button" value="Ava"> <input type="button" value="Teagan"> <input type="button" value="Bikepacking"> <input type="button" value="14ers"> <input class="clear" type="button" value="Clear"></div></div><div class="photo-form-section group"><div class="title"><h3>Location</h3></div><div class="form"><input type="button" value="Colorado"> <input type="button" value="Massachusetts"> <input type="button" value="Illinois"> <input type="button" value="Utah"> <input type="button" value="International"> <input class="clear" type="button" value="Clear"></div></div><hr><div class="photo-thumbs-section"><p id="messageYear"></p><p id="messageFilter"></p><ul class="photo-thumbs" data-bind="foreach: matchedItems"><li data-bind="attr: { class: filter }"><img data-bind="attr: { src: thumb }" height="125" width="200"> <a data-bind="attr: { href: url, title: caption }" target="_blank"><p data-bind="text: caption"></p></a></li></ul></div></div></div><script src="js/jquery.min.js"></script><script src="js/knockout.js"></script><script src="js/photos.min.js"></script><script>// Click event to clear the filters
+	$('.clear').click(function() {
 		$('li').each(function() {
 			$(this).show();
 		})
@@ -29,6 +29,9 @@
       return letter.toUpperCase();
     });
 
+    /* Searches through each list item's innerHTML (which is pulled from the caption property)
+     * and tries to match that to the search value entered by user
+     */
 		$('li').each(function() {
 			if ($(this).text().search(value) > -1) {
 				$(this).show();
