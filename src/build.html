@@ -69,7 +69,7 @@
 				<div class="selection">
 					<select id="wood-species">
 						<option value="185">Walnut</option>
-						<option value="135">Mahogany</option>
+						<option value="160">Mahogany</option>
 					</select>
 				</div>
 
@@ -104,29 +104,12 @@
 				<div class="selection">
 					<select id="velvet">
 						<option value="0">Black</option>
-						<option value="5">Red: +$5</option>
+						<option value="0">Red</option>
 					</select>
 				</div>
 
 				<div class="image-view">
 					<img id="velvet-image" src="images/black.jpg" width="100">
-				</div>
-			</div>
-
-			<div class="build-section group">
-				<div class="label">
-					<label for="mirror">Mirror:</label>
-				</div>
-
-				<div class="selection">
-					<select id="mirror">
-						<option value="0">No</option>
-						<option value="50">Yes: +$50</option>
-					</select>
-				</div>
-
-				<div class="image-view">
-					<img id="mirror-image" src="images/none.png" width="100">
 				</div>
 			</div>
 
@@ -138,7 +121,7 @@
 				<div class="selection">
 					<select id="size">
 						<option value="0">Standard: 8" x 12"</option>
-						<option value="25">Large: 10" x 14" +$25</option>
+						<option value="40">Large: 10" x 14" +$40</option>
 						<!-- <option value="0">Small: 6.5" x 9.5"</option> -->
 					</select>
 				</div>
@@ -161,7 +144,7 @@
 				</div>
 			</div>
 
-			<p class="inventory-notice">Or view our current <a href="store.html">Inventory</a></p>
+			<p class="inventory-notice">View current stock in our <a href="store.html">Store</a></p>
 
 		</div>
 
@@ -191,20 +174,20 @@
 		});
 
 		$('#velvet').change(function() {
-			if ($('#velvet option:selected').text() === "Red: +$5") {
+			if ($('#velvet option:selected').text() === "Red") {
 				$('#velvet-image').attr("src", "images/red.jpg");
 			} else if ($('#velvet option:selected').text() === "Black") {
 				$('#velvet-image').attr("src", "images/black.jpg");
 			}
 		});
 
-		$('#mirror').change(function() {
-			if ($('#mirror option:selected').text() === "Yes: +$50") {
-				$('#mirror-image').attr("src", "images/mirror.jpg");
-			} else if ($('#mirror option:selected').text() === "No") {
-				$('#mirror-image').attr("src", "images/none.png");
-			}
-		});
+		// $('#mirror').change(function() {
+		// 	if ($('#mirror option:selected').text() === "Yes: +$50") {
+		// 		$('#mirror-image').attr("src", "images/mirror.jpg");
+		// 	} else if ($('#mirror option:selected').text() === "No") {
+		// 		$('#mirror-image').attr("src", "images/none.png");
+		// 	}
+		// });
 
 		$('select').change(buyIt);
 		$(document).ready(buyIt);
@@ -213,17 +196,17 @@
 			var wood = parseInt($('#wood-species').val());
 			var inlay = parseInt($('#inlay').val());
 			var velvet = parseInt($('#velvet').val());
-			var mirror = parseInt($('#mirror').val());
+			// var mirror = parseInt($('#mirror').val());
 			var size = parseInt($('#size').val());
-			var value = wood + inlay + velvet + mirror + size;
+			var value = wood + inlay + velvet + size;
 
 			var woodChoice = $('#wood-species option:selected').text();
 			var inlayChoice = $('#inlay option:selected').text();
 			var velvetChoice = $('#velvet option:selected').text();
-			var mirrorChoice = $('#mirror option:selected').text();
+			// var mirrorChoice = $('#mirror option:selected').text();
 			var sizeChoice = $('#size option:selected').text();
 			var valueText = "Jewelry Box - Wood: " + woodChoice + ". Inlay: " + inlayChoice + ". Velvet: " +
-											velvetChoice + ". Mirror: " + mirrorChoice + ". Size: " + sizeChoice;
+											velvetChoice + ". Size: " + sizeChoice;
 			$('#totalCost').text(value);
 			// Sets the value of the hidden form field that the paypal button script above creates
 			$('input[name="amount"]').val(value);

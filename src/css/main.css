@@ -155,6 +155,8 @@ input[type="text"] {
     padding-bottom: 10px;
     font-size: 2em;
     border-bottom: 1px solid #000; }
+  .heading > h5 {
+    color: #1080dd; }
 
 .tagline {
   margin: 175px 12.5% 0 12.5%;
@@ -312,6 +314,12 @@ input[type="text"] {
 .inventory-section {
   width: 960px;
   margin: 0 auto; }
+  .inventory-section .chooseItem {
+    text-align: center; }
+    .inventory-section .chooseItem > a img {
+      opacity: 1; }
+      .inventory-section .chooseItem > a img:hover {
+        opacity: .9; }
   .inventory-section .inventory-container {
     width: 960px;
     background: #fff;
@@ -365,6 +373,40 @@ input[type="text"] {
       .inventory-section .inventory-container .inventory-info .inventory-buy {
         text-align: right;
         padding: 20px 10px; }
+
+/*
+========== TOOL TIP STYLING ==========
+*/
+.tooltip {
+  display: none;
+  position: absolute;
+  border: 1px solid #999;
+  background-color: #124191;
+  border-radius: 5px;
+  padding: 5px;
+  color: #fff;
+  font-family: calibri;
+  font-size: 12px Arial; }
+
+a[data-title]:hover:after {
+  content: attr(data-title);
+  padding: 1px 8px;
+  font-family: calibri;
+  color: #fff;
+  font-size: .4em;
+  position: absolute;
+  left: -250px;
+  top: 100%;
+  white-space: nowrap;
+  z-index: 20px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: 0px 0px 4px #222;
+  -webkit-box-shadow: 0px 0px 4px #222;
+  box-shadow: 0px 0px 4px #222;
+  border: 2px solid #333;
+  background: #1080DD; }
 
 @media screen and (max-width: 1200px) {
   header .header-content {

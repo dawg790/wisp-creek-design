@@ -37,9 +37,9 @@ var ViewModel = function () {
     "images/build1.jpg",
     "images/build4.jpg",
     "images/shop1.jpg",
-    "images/shop2.jpg",
-    "images/box_open_lg.png",
-    "images/box7.jpg"
+    "images/box003_1.jpg",
+    "images/box002_2.jpg",
+    "images/box001_clip1.jpg"
   ]);
 
   // When scrolling right, increment the counter and stop scrolling if reach the last image
@@ -106,8 +106,6 @@ var ViewModel = function () {
     $('#order-num, #order-name').val("");
   };
 
-
-
   // Mobile Hamburger icon click function to show the nav menu
   self.showMobileNav = function () {
     $('.lines-button').toggleClass('close');
@@ -115,9 +113,7 @@ var ViewModel = function () {
     $('.tagline').fadeToggle();
   };
 
-
 };
-
 
 ko.applyBindings( new ViewModel());
 
@@ -149,4 +145,21 @@ $(document).scroll(function() {
 		$('.nav li').css('line-height', '47px');
 		$('header').css('border-bottom', 'none');
 	}
+});
+
+// Tooltip only Text
+$('.masterTooltip').hover(function(){
+  // Hover over code
+  var title = $(this).attr('title');
+  $(this).data('tipText', title).removeAttr('title');
+  $('<p class="tooltip"></p>').text(title).appendTo('body').fadeIn('slow');
+}, function() {
+  // Hover out code
+  $(this).attr('title', $(this).data('tipText'));
+  $('.tooltip').remove();
+}).mousemove(function(e) {
+  var mousex = e.pageX + 20; //Get X coordinates
+  var mousey = e.pageY + 10; //Get Y coordinates
+  $('.tooltip')
+  .css({ top: mousey, left: mousex })
 });
