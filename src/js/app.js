@@ -127,8 +127,8 @@ var w = window,
 	g = d.getElementsByTagName('body')[0],
 	x = w.innerWidth || e.clientWidth || g.clientWidth,
 	y = w.innerHeight || e.clientHeight || g.clientHeight;
-console.log(x);
-console.log(y);
+console.log("x: " + x);
+console.log("y: " + y);
 
 // Header styling changes on Scroll
 $(document).scroll(function() {
@@ -136,13 +136,13 @@ $(document).scroll(function() {
 		$('.icon').css('display', 'none');
 		$('.nav li').css('line-height', '47px');
 		$('header').css('border-bottom', '1px solid #e9e9e9');
-	} else if ( $(this).scrollTop() === 0 && x > 550) {
+	} else if ( $(this).scrollTop() === 0 && x > 850) {
 		$('.icon').css('display', 'block');
 		$('.nav li').css('line-height', '74px');
 		$('header').css('border-bottom', 'none');
-	} else if ( $(this).scrollTop() === 0 && x < 550) {
+	} else if ( $(this).scrollTop() === 0 && x < 850) {
 		$('.icon').css('display', 'block');
-		$('.nav li').css('line-height', '47px');
+		$('.nav li').css('line-height', '40px');
 		$('header').css('border-bottom', 'none');
 	}
 });
