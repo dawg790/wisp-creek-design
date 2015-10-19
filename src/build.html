@@ -68,8 +68,8 @@
 
 				<div class="selection">
 					<select id="wood-species">
-						<option value="185">Walnut</option>
-						<option value="160">Mahogany</option>
+						<option value="175">Walnut</option>
+						<option value="150">Mahogany</option>
 					</select>
 				</div>
 
@@ -86,8 +86,8 @@
 				<div class="selection">
 					<select id="inlay">
 						<option value="0">No Inlay</option>
-						<option value="50">Walnut,Maple,Ebony +$50</option>
-						<option value="50">Ebony,Maple +$50</option>
+						<option value="25">Walnut,Maple,Ebony +$25</option>
+						<option value="25">Ebony,Maple +$25</option>
 					</select>
 				</div>
 
@@ -164,9 +164,9 @@
 		});
 
 		$('#inlay').change(function() {
-			if ($('#inlay option:selected').text() === "Walnut,Maple,Ebony +$50") {
+			if ($('#inlay option:selected').text() === "Walnut,Maple,Ebony +$25") {
 				$('#inlay-image').attr("src", "images/inlay1.jpg");
-			} else if ($('#inlay option:selected').text() === "Ebony,Maple +$50") {
+			} else if ($('#inlay option:selected').text() === "Ebony,Maple +$25") {
 				$('#inlay-image').attr("src", "images/inlay2.jpg");
 			} else {
 				$('#inlay-image').attr("src", "images/none.png");
