@@ -12,8 +12,7 @@ var orders = [
     "orderNumber": "000001",
     "status": "In Progress",
     "completionDate": "July 1, 2015",
-    "notes": "Box is completed, first coat of Tung Oil has been applied.",
-    "pic": "images/box9.jpg"
+    "notes": "Box is completed, first coat of Tung Oil has been applied."
   },
   {
     "firstName": "Wendy",
@@ -21,8 +20,7 @@ var orders = [
     "orderNumber": "000002",
     "status": "Not Started Yet",
     "completionDate": "August 21, 2015",
-    "notes": "All the parts are planed and jointed and ready to be cut to size.",
-    "pic": "images/box1.jpg"
+    "notes": "All the parts are planed and jointed and ready to be cut to size."
   }
 ];
 
@@ -88,7 +86,6 @@ var ViewModel = function () {
         $('.status span').text(self.allOrders()[i].status);
         $('.completion span').text(self.allOrders()[i].completionDate);
         $('.notes span').text(self.allOrders()[i].notes);
-        $('.pic img').attr('src', self.allOrders()[i].pic).attr('width', '300');
         found = true;
         break;
       }
@@ -102,7 +99,6 @@ var ViewModel = function () {
   // On click within the inputs, clear the Order Status input fields
   self.clearFields = function () {
     $('.status span, .completion span, .buyer span, .notes span').text("");
-    $('.pic img').attr('src', "").attr('width', '0');
     $('#order-num, #order-name').val("");
   };
 

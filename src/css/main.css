@@ -374,6 +374,40 @@ input[type="text"] {
         text-align: right;
         padding: 20px 10px; }
 
+.contact-section {
+  width: 760px;
+  margin: auto;
+  position: relative; }
+  .contact-section > img {
+    max-width: 100%; }
+  .contact-section > h2 {
+    color: #1080dd;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #000; }
+  .contact-section > h4 {
+    color: #888; }
+  .contact-section > h5 {
+    text-indent: 20px;
+    margin-top: -10px;
+    color: #1080dd; }
+    .contact-section > h5 > a {
+      color: #1080dd;
+      text-decoration: none; }
+      .contact-section > h5 > a:hover {
+        text-decoration: underline; }
+  .contact-section > p {
+    color: #888;
+    text-indent: 20px;
+    padding-left: 10px; }
+    .contact-section > p:first-letter {
+      font-size: 1.125em;
+      font-weight: bold; }
+  .contact-section .biopic {
+    position: absolute;
+    right: 0;
+    bottom: 0; }
+
 /*
 ========== TOOL TIP STYLING ==========
 */

@@ -465,6 +465,50 @@ input[type="text"] {
   }
 }
 
+.contact-section {
+	width: 760px;
+	margin: auto;
+	position: relative;
+	> img {
+		max-width: 100%;
+	}
+	> h2 {
+		color: $blue;
+		padding-bottom: 5px;
+		margin-bottom: 10px;
+		border-bottom: 1px solid #000;
+	}
+	> h4 {
+		color: #888;
+	}
+	> h5 {
+		text-indent: 20px;
+		margin-top: -10px;
+		color: $blue;
+		> a {
+			color: $blue;
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	> p {
+		color: #888;
+		text-indent: 20px;
+		padding-left: 10px;
+		&:first-letter {
+			font-size: 1.125em;
+			font-weight: bold;
+		}
+	}
+	.biopic {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+}
+
 /*
 ========== TOOL TIP STYLING ==========
 */
