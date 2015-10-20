@@ -47,12 +47,12 @@
 
 				<div class="header-nav">
 					<ul class="nav">
-						<li><a href="index.html"><i class="fa fa-home fa-lg"></i></a></li>
-						<li><a href="store.html">Store</a></li>
-						<li><a href="media.html">Media</a></li>
-						<li><a class="selected" href="build.html">Build</a></li>
-						<li><a href="order.html">Order Status</a></li>
-						<li><a href="contact.html"><i class="fa fa-envelope-o fa-lg"></i></a></li>
+						<li><a href="index.html" title="home"><i class="fa fa-home fa-lg"></i></a></li>
+						<li><a href="store.html" title="Store"><i class="fa fa-shopping-cart"></i> Store</a></li>
+						<li><a href="media.html" title="Media"><i class="fa fa-camera"></i> Media</a></li>
+						<li><a class="selected" href="build.html" title="Build"><i class="fa fa-wrench"></i> Build</a></li>
+						<li><a href="order.html" title="Order Status"><i class="fa fa-truck"></i> Orders</a></li>
+						<li><a href="contact.html" title="Contact"><i class="fa fa-envelope-o"></i> Contact</a></li>
 					</ul>
 				</div>
 			</div>
@@ -87,8 +87,10 @@
 				<div class="selection">
 					<select id="inlay">
 						<option value="0">No Inlay</option>
-						<option value="25">Walnut,Maple,Ebony +$25</option>
-						<option value="25">Ebony,Maple +$25</option>
+						<option value="25">Maple,Walnut,Ebony +$25</option>
+						<option value="25">Maple,Ebony +$25</option>
+						<option value="25">Maple,Ebony,Mahogany +$25</option>
+						<option value="25">Maple,Mahogany +$25</option>
 					</select>
 				</div>
 
@@ -165,10 +167,14 @@
 		});
 
 		$('#inlay').change(function() {
-			if ($('#inlay option:selected').text() === "Walnut,Maple,Ebony +$25") {
+			if ($('#inlay option:selected').text() === "Maple,Walnut,Ebony +$25") {
 				$('#inlay-image').attr("src", "images/inlay1.jpg");
-			} else if ($('#inlay option:selected').text() === "Ebony,Maple +$25") {
+			} else if ($('#inlay option:selected').text() === "Maple,Ebony +$25") {
 				$('#inlay-image').attr("src", "images/inlay2.jpg");
+			} else if ($('#inlay option:selected').text() === "Maple,Ebony,Mahogany +$25") {
+				$('#inlay-image').attr("src", "images/inlay3.jpg");
+			} else if ($('#inlay option:selected').text() === "Maple,Mahogany +$25") {
+				$('#inlay-image').attr("src", "images/inlay4.jpg");
 			} else {
 				$('#inlay-image').attr("src", "images/none.png");
 			}

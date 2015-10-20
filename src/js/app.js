@@ -4,6 +4,8 @@
  * For a new order, add a new object to the orders database below
  * For updates to an order, update the stats in each entry
  * Take a picture of progress and add it to the src/images folder and run gulp images
+
+ https://tools.usps.com/go/TrackConfirmAction?tLabels=
  */
 var orders = [
   {
@@ -12,15 +14,17 @@ var orders = [
     "orderNumber": "000001",
     "status": "In Progress",
     "completionDate": "July 1, 2015",
-    "notes": "Box is completed, first coat of Tung Oil has been applied."
+    "notes": "Box is completed, first coat of Tung Oil has been applied.",
+    "tracking": ""
   },
   {
     "firstName": "Wendy",
     "lastName": "Yetterberg",
     "orderNumber": "000002",
-    "status": "Not Started Yet",
-    "completionDate": "August 21, 2015",
-    "notes": "All the parts are planed and jointed and ready to be cut to size."
+    "status": "Complete",
+    "completionDate": "October 20, 2015",
+    "notes": "Shipped!",
+    "tracking": "456"
   }
 ];
 
@@ -86,10 +90,14 @@ var ViewModel = function () {
         $('.status span').text(self.allOrders()[i].status);
         $('.completion span').text(self.allOrders()[i].completionDate);
         $('.notes span').text(self.allOrders()[i].notes);
+        $('.tracking span').text(self.allOrders()[i].tracking);
         found = true;
         break;
       }
     }
+    // Put tracking number into USPS tracking field
+    $('.tracking a').attr("href", "https://tools.usps.com/go/TrackConfirmAction?tLabels=" + self.allOrders()[i].tracking);
+
     // If our found variable is false, we did not find the order
     if (!found) $('.status span').html("We did not find that order. Please <a href='mailto:nick@wispcreekdesign.com'>Email Us</a.");
 
@@ -98,7 +106,7 @@ var ViewModel = function () {
 
   // On click within the inputs, clear the Order Status input fields
   self.clearFields = function () {
-    $('.status span, .completion span, .buyer span, .notes span').text("");
+    $('.status span, .completion span, .buyer span, .notes span, .tracking span').text("");
     $('#order-num, #order-name').val("");
   };
 

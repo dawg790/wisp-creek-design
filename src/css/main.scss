@@ -56,7 +56,7 @@ header {
 			}
 		}
 		.icon {
-			margin-top: -10px;
+			margin-top: -18px;
 			margin-bottom: -8px;
 			button {
 				display: none;
@@ -67,12 +67,12 @@ header {
 		float: right;
 		width: 60%;
 		.nav {
-			padding: 0 10px 0 0;
+			padding: 0;
 			margin: 0;
 			text-align: right;
 			> li {
 				line-height: 74px;
-				padding-left: 15px;
+				padding-left: 10px;
 				display: inline-block;
 				color: #fff;
 				text-transform: uppercase;
@@ -88,7 +88,7 @@ header {
 				}
 				.selected {
 					font-style: italic;
-					color: $blue;
+					color: #ffff90;
 				}
 			}
 		}
@@ -96,7 +96,7 @@ header {
 }
 
 .header-page {
-	background: $gray;
+	background: linear-gradient($gray, #000);
 	.header-content {
 		border-bottom: none;
 	}
@@ -378,7 +378,7 @@ input[type="text"] {
 	.completion,
 	.buyer,
 	.notes,
-	.pic {
+	.tracking {
 		font-size: 18px;
 		color: #888;
 	}
@@ -554,7 +554,7 @@ a[data-title]:hover:after {
 	}
 
 	header .header-nav .nav li {
-		padding-left: 25px;
+		padding-left: 8px;
 	}
 
 	.photo-container,
