@@ -35,7 +35,7 @@ header {
       font-size: 2em;
       margin: 0;
       padding: 5px;
-      color: #fff; }
+      color: #ffffff; }
       header .header-title > h1 a {
         text-decoration: none;
         color: inherit; }
@@ -50,29 +50,33 @@ header {
     float: right;
     width: 60%; }
     header .header-nav .nav {
-      padding: 0;
       margin: 0;
+      padding: 0;
       text-align: right; }
       header .header-nav .nav > li {
         line-height: 74px;
         padding-left: 10px;
         display: inline-block;
-        color: #fff;
+        color: #ffffff;
         text-transform: uppercase;
         font-size: .9em;
         font-weight: 700; }
+        header .header-nav .nav > li:first-child {
+          color: #888888; }
         header .header-nav .nav > li > a {
           text-decoration: none;
           color: inherit;
           padding: 20px 5px; }
           header .header-nav .nav > li > a:hover {
             color: #1080dd; }
+          header .header-nav .nav > li > a i {
+            padding-right: 5px; }
         header .header-nav .nav > li .selected {
           font-style: italic;
-          color: #ffff90; }
+          color: #1080dd; }
 
 .header-page {
-  background: linear-gradient(#262626, #000); }
+  background: linear-gradient(#3b3b3b, #000000); }
   .header-page .header-content {
     border-bottom: none; }
 
@@ -93,7 +97,7 @@ header {
         background: -o-linear-gradient(#25A6E1 0%, #188BC0 100%);
         background: linear-gradient(#25A6E1 0%, #188BC0 100%);
         /*filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#25A6E1',endColorstr='#188BC0',GradientType=0);*/
-        color: #fff;
+        color: #ffffff;
         padding: 1px 8px;
         border: 1px solid #1A87B9;
         border-radius: 5px;
@@ -104,7 +108,7 @@ header {
           background: #1A87B9;
           color: #ffff90; }
         .photo-container .photo-form-section .form input[type=button]:active {
-          color: #000; }
+          color: #000000; }
   .photo-container .photo-thumbs-section {
     width: 100%; }
     .photo-container .photo-thumbs-section .photo-thumbs {
@@ -154,9 +158,22 @@ input[type="text"] {
     color: #262626;
     padding-bottom: 10px;
     font-size: 2em;
-    border-bottom: 1px solid #000; }
+    border-bottom: 1px solid #000000; }
   .heading > h5 {
     color: #1080dd; }
+
+.button {
+  padding: 5px;
+  background: #1080dd;
+  margin: 15px 0;
+  font-weight: 700;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff; }
+  .button:hover {
+    background: #124191;
+    cursor: pointer; }
 
 .tagline {
   margin: 175px 12.5% 0 12.5%;
@@ -164,13 +181,13 @@ input[type="text"] {
   padding-top: 3px;
   text-align: center; }
   .tagline > h2 {
-    color: #fff;
+    color: #ffffff;
     margin: 10px;
     font-size: 52px;
     font-weight: 400;
     font-family: 'Shadows Into Light', cursive; }
   .tagline > h3 {
-    color: #fff;
+    color: #ffffff;
     font-weight: 400;
     font-size: 1.175em;
     font-family: 'Lato'; }
@@ -180,7 +197,7 @@ input[type="text"] {
     background: #f09609;
     background: -webkit-linear-gradient(to bottom, #f09609, #c07807);
     background: linear-gradient(to bottom, #f09609, #c07807);
-    color: #000;
+    color: #000000;
     font-weight: 700;
     border-radius: 5px;
     text-decoration: none;
@@ -252,14 +269,22 @@ input[type="text"] {
     color: #1080dd;
     padding-bottom: 10px;
     margin-bottom: 35px;
-    border-bottom: 1px solid #000; }
+    border-bottom: 1px solid #000000; }
   .build-container .inventory-notice {
     font-size: 1em;
-    color: #888;
+    color: #888888;
     font-style: italic;
-    margin: 25px 0; }
+    margin: -10px 0 25px 0; }
     .build-container .inventory-notice > a:hover {
       color: #1080dd; }
+  .build-container .messageAvail,
+  .build-container .messageNA {
+    border-radius: 5px;
+    padding: 5px;
+    background: #F02309;
+    color: #ffffff;
+    font-weight: 700;
+    display: none; }
   .build-container .build-section:last-child {
     margin-bottom: 25px; }
   .build-container .selection,
@@ -267,12 +292,17 @@ input[type="text"] {
     float: left; }
   .build-container .label {
     width: 125px;
-    color: #888;
+    color: #888888;
     font-size: 1.125em; }
   .build-container .image-view {
     float: right; }
   .build-container .cost-holder p {
-    margin-bottom: -25px; }
+    margin-bottom: -25px;
+    font-size: 2em;
+    color: green;
+    margin-top: -10px; }
+    .build-container .cost-holder p > span {
+      color: green; }
 
 .status-container {
   width: 50%;
@@ -281,7 +311,7 @@ input[type="text"] {
     color: #1080dd;
     padding-bottom: 10px;
     margin-bottom: 35px;
-    border-bottom: 1px solid #000; }
+    border-bottom: 1px solid #000000; }
   .status-container label {
     display: block;
     font-size: 1.125em; }
@@ -291,39 +321,47 @@ input[type="text"] {
     display: block;
     font-family: "Raleway";
     font-size: 16px; }
-  .status-container button {
-    padding: 10px;
-    background: #124191;
-    margin: 15px 0;
-    font-weight: 700;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    color: #fff; }
-    .status-container button:hover {
-      background: #1080dd;
-      cursor: pointer; }
   .status-container .status,
   .status-container .completion,
   .status-container .buyer,
   .status-container .notes,
   .status-container .tracking {
     font-size: 18px;
-    color: #888; }
+    color: #888888; }
 
 .inventory-section {
   width: 960px;
   margin: 0 auto; }
   .inventory-section .chooseItem {
     text-align: center; }
+    .inventory-section .chooseItem > a {
+      position: relative; }
+      .inventory-section .chooseItem > a:hover .caption {
+        opacity: 1; }
     .inventory-section .chooseItem > a img {
       opacity: 1; }
       .inventory-section .chooseItem > a img:hover {
         opacity: .9; }
+    .inventory-section .chooseItem .caption {
+      position: absolute;
+      width: 100%;
+      background: linear-gradient(#1080dd, #124191);
+      border-top: 1px solid #888888;
+      top: -21px;
+      right: 0;
+      color: #ffffff;
+      font-weight: 700;
+      opacity: 0;
+      transition: opacity 0.5s; }
+      .inventory-section .chooseItem .caption .notAvail {
+        color: red; }
+      .inventory-section .chooseItem .caption .avail {
+        color: lightgreen;
+        font-size: .8em; }
   .inventory-section .inventory-container {
     width: 960px;
-    background: #fff;
-    border: 1px solid #888;
+    background: #ffffff;
+    border: 1px solid #888888;
     margin: 25px 0; }
     .inventory-section .inventory-container .inventory-viewer {
       float: left;
@@ -375,7 +413,7 @@ input[type="text"] {
         padding: 20px 10px; }
 
 .contact-section {
-  width: 760px;
+  width: 50%;
   margin: auto;
   position: relative; }
   .contact-section > img {
@@ -384,25 +422,26 @@ input[type="text"] {
     color: #1080dd;
     padding-bottom: 5px;
     margin-bottom: 10px;
-    border-bottom: 1px solid #000; }
+    border-bottom: 1px solid #000000; }
   .contact-section > h4 {
-    color: #888; }
+    color: #888888; }
   .contact-section > h5 {
     text-indent: 20px;
     margin-top: -10px;
     color: #1080dd; }
     .contact-section > h5 > a {
-      color: #1080dd;
+      color: #000000;
       text-decoration: none; }
       .contact-section > h5 > a:hover {
-        text-decoration: underline; }
+        text-decoration: underline;
+        color: #1080dd; }
   .contact-section > p {
-    color: #888;
+    color: #888888;
     text-indent: 20px;
     padding-left: 10px; }
     .contact-section > p:first-letter {
       font-size: 1.125em;
-      font-weight: bold; }
+      font-weight: 700; }
   .contact-section .biopic {
     position: absolute;
     right: 0;
@@ -418,7 +457,7 @@ input[type="text"] {
   background-color: #124191;
   border-radius: 5px;
   padding: 5px;
-  color: #fff;
+  color: #ffffff;
   font-family: calibri;
   font-size: 12px Arial; }
 
@@ -426,15 +465,13 @@ a[data-title]:hover:after {
   content: attr(data-title);
   padding: 1px 8px;
   font-family: calibri;
-  color: #fff;
+  color: #ffffff;
   font-size: .4em;
   position: absolute;
   left: -250px;
   top: 100%;
   white-space: nowrap;
   z-index: 20px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
   border-radius: 5px;
   -moz-box-shadow: 0px 0px 4px #222;
   -webkit-box-shadow: 0px 0px 4px #222;
@@ -524,6 +561,9 @@ a[data-title]:hover:after {
   .inventory-section {
     width: 100%; }
 
+  .contact-section {
+    width: 75%; }
+
   .inventory-section {
     width: 500px; }
     .inventory-section .inventory-container {
@@ -559,7 +599,8 @@ a[data-title]:hover:after {
     width: 35px;
     top: 45%; }
 
-  .status-container {
+  .status-container,
+  .contact-section {
     width: 90%;
     margin-top: 100px; }
 
@@ -587,7 +628,7 @@ a[data-title]:hover:after {
     width: 60px; }
 
   .build-container h2 {
-    margin: 10px 0; }
+    margin: 20px 0; }
 
   .inventory-section {
     width: 300px; }

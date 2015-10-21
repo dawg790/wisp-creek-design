@@ -1,11 +1,8 @@
 
-/* Our Customer Database
- *
+/* Orders placed online
  * For a new order, add a new object to the orders database below
  * For updates to an order, update the stats in each entry
- * Take a picture of progress and add it to the src/images folder and run gulp images
-
- https://tools.usps.com/go/TrackConfirmAction?tLabels=
+ *
  */
 var orders = [
   {
@@ -15,7 +12,7 @@ var orders = [
     "status": "In Progress",
     "completionDate": "July 1, 2015",
     "notes": "Box is completed, first coat of Tung Oil has been applied.",
-    "tracking": ""
+    "tracking": "123"
   },
   {
     "firstName": "Wendy",
@@ -27,6 +24,16 @@ var orders = [
     "tracking": "456"
   }
 ];
+
+// Current Inventory. The values are pulled from the valueText variable on the Build page.
+// Keep this updated with the current boxes in stock
+var inventory = [
+  'Jewelry Box - Wood: Walnut. Inlay: Chevron #1 +$25. Velvet: Black. Size: Standard: 8" x 12"',
+  'Jewelry Box - Wood: Mahogany. Inlay: Black Line #2 +$25. Velvet: Black. Size: Standard: 8" x 12"',
+  'Jewelry Box - Wood: Mahogany. Inlay: Blocks #3 +$25. Velvet: Red. Size: Large: 10" x 14" +$40',
+  'Jewelry Box - Wood: Mahogany. Inlay: Alternating Blocks #4 +$25. Velvet: Red. Size: Large: 10" x 14" +$40'
+];
+
 
 var ViewModel = function () {
   var self = this;
@@ -96,7 +103,7 @@ var ViewModel = function () {
       }
     }
     // Put tracking number into USPS tracking field
-    $('.tracking a').attr("href", "https://tools.usps.com/go/TrackConfirmAction?tLabels=" + self.allOrders()[i].tracking);
+    if (found) $('.tracking a').attr("href", "https://tools.usps.com/go/TrackConfirmAction?tLabels=" + self.allOrders()[i].tracking);
 
     // If our found variable is false, we did not find the order
     if (!found) $('.status span').html("We did not find that order. Please <a href='mailto:nick@wispcreekdesign.com'>Email Us</a.");
@@ -115,6 +122,33 @@ var ViewModel = function () {
     $('.lines-button').toggleClass('close');
     $('header .header-content .header-nav .nav').toggleClass('open');
     $('.tagline').fadeToggle();
+  };
+
+  // Inventory Check
+  self.checkInventory = function () {
+    // On click this shows the spinning icon and hides both messages
+    $('.fa-pulse').show();
+    $('.messageNA, .messageAvail').hide();
+    var result; // We store the result of the findings in a variable
+
+    setTimeout(function() { // After the timer, hide the spinner, and show the correct message
+      $('.fa-pulse').hide();
+      for (var i = 0; i < inventory.length; i++) {
+        if (valueText === inventory[i]) {
+          result = true;
+          break;
+        } else {
+          result = false;
+        }
+      };
+
+      // Based on the value of the result variable, show the correct message
+      if (result) $('.messageAvail').show();
+      if (!result) $('.messageNA').show();
+
+    }, 1500);
+
+    return false;
   };
 
 };
