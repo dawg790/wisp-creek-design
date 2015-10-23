@@ -1,4 +1,4 @@
-Project Scaffolding:
+# Project Scaffolding:
 
 1: mkdir WCD-3.0
 2: npm install --save-dev gulp
@@ -17,3 +17,9 @@ Project Scaffolding:
 15: git init
 16: git rm --cached for any files to be untracked
 17:
+
+# TODO/Ideas:
+
+## Add facebook/twitter/instagram icons
+## Other work page with gallery of pictures of other items
+## Need a link to the Blog

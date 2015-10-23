@@ -41,6 +41,8 @@
     position: absolute;
     left: 0;
     content: '';
+    -webkit-transform-origin: 0.17857rem center;
+    -ms-transform-origin: 0.17857rem center;
     transform-origin: 0.17857rem center; }
   .lines:before {
     top: 0.625rem; }
@@ -60,12 +62,18 @@
   /* overlay the lines by setting both their top values to 0 */
   /* rotate the lines to form the x shape */ }
   .lines-button.x.close .lines:before, .lines-button.x.close .lines:after {
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
     top: 0;
     width: 2.5rem; }
   .lines-button.x.close .lines:before {
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    -ms-transform: rotate3d(0, 0, 1, 45deg);
     transform: rotate3d(0, 0, 1, 45deg); }
   .lines-button.x.close .lines:after {
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+    -ms-transform: rotate3d(0, 0, 1, -45deg);
     transform: rotate3d(0, 0, 1, -45deg); }
 
 /*# sourceMappingURL=navicon.css.map */

@@ -1,10 +1,10 @@
-
 /* Orders placed online
  * For a new order, add a new object to the orders database below
  * For updates to an order, update the stats in each entry
  *
  */
 var orders = [
+  // Sample order below
   {
     "firstName": "Nick",
     "lastName": "Woodland",
@@ -13,20 +13,12 @@ var orders = [
     "completionDate": "July 1, 2015",
     "notes": "Box is completed, first coat of Tung Oil has been applied.",
     "tracking": "123"
-  },
-  {
-    "firstName": "Wendy",
-    "lastName": "Yetterberg",
-    "orderNumber": "000002",
-    "status": "Complete",
-    "completionDate": "October 20, 2015",
-    "notes": "Shipped!",
-    "tracking": "456"
   }
 ];
 
-// Current Inventory. The values are pulled from the valueText variable on the Build page.
-// Keep this updated with the current boxes in stock
+/* Current Inventory. The values are pulled from the valueText variable.
+ * TODO: Keep this updated with the current boxes in stock
+ */
 var inventory = [
   'Jewelry Box - Wood: Walnut. Inlay: Chevron #1 +$25. Velvet: Black. Size: Standard: 8" x 12"',
   'Jewelry Box - Wood: Mahogany. Inlay: Black Line #2 +$25. Velvet: Black. Size: Standard: 8" x 12"',
@@ -71,25 +63,26 @@ var ViewModel = function () {
     }
   };
 
-
-  // ORDER STATUS CHECK APP
+  // Create an observable array for our Orders
   self.allOrders = ko.observableArray([]);
 
-  // Put all our orders into an observable array
+  // Put all our orders into the observable array
   orders.forEach(function (item) {
     self.allOrders.push(item);
   });
 
-  // Function to run when the order status form is submitted
+  // Pulls up order information when a user submits the form
   self.checkOrder = function () {
-    var found =  false; // If no name, or order number found this stays as false
+    var found =  false; // If no name or order number found, this stays false
     var name = $('#order-name').val();
     var order = $('#order-num').val();
+
     // Capital casing the input name
     name = name.toLowerCase().replace(/\b[a-z]/g, function (letter) {
       return letter.toUpperCase();
     });
 
+    // Loop through all orders to see if there is a match. If so, display the order info in the appropriate fields.
     var items = self.allOrders().length;
     for (var i = 0; i < items; i++) {
       if (name === self.allOrders()[i].lastName || order === self.allOrders()[i].orderNumber) {
@@ -111,7 +104,7 @@ var ViewModel = function () {
     return false;
   };
 
-  // On click within the inputs, clear the Order Status input fields
+  // Clear the Order Status input fields
   self.clearFields = function () {
     $('.status span, .completion span, .buyer span, .notes span, .tracking span').text("");
     $('#order-num, #order-name').val("");
@@ -124,14 +117,17 @@ var ViewModel = function () {
     $('.tagline').fadeToggle();
   };
 
-  // Inventory Check
+  // Inventory Check function to see if a box the user has built is in stock or not.
   self.checkInventory = function () {
     // On click this shows the spinning icon and hides both messages
     $('.fa-pulse').show();
     $('.messageNA, .messageAvail').hide();
-    var result; // We store the result of the findings in a variable
 
-    setTimeout(function() { // After the timer, hide the spinner, and show the correct message
+    // We store the result of the findings in a variable
+    var result;
+
+    // After the timer, hide the spinner, and show the correct message
+    setTimeout(function() {
       $('.fa-pulse').hide();
       for (var i = 0; i < inventory.length; i++) {
         if (valueText === inventory[i]) {
@@ -140,15 +136,67 @@ var ViewModel = function () {
         } else {
           result = false;
         }
-      };
+      }
 
       // Based on the value of the result variable, show the correct message
-      if (result) $('.messageAvail').show();
-      if (!result) $('.messageNA').show();
+      if (result) {
+        $('.messageAvail').show();
+
+        // Since it is in stock, give a 5% discount, and show the new price
+        value = Math.floor(value - (value * 0.05));
+        $('#totalCost').addClass('discounted');
+        $('#discountCost').show().text(value);
+
+        // Set the new price for the paypal button value
+        $('input[name="amount"]').val(value);
+        $('.discount').show();
+      } else {
+        $('.messageNA').show();
+        $('.discount, #discountCost').hide();
+      }
 
     }, 1500);
 
     return false;
+  };
+
+  // The Box Builder function
+  self.boxBuilder = function () {
+    // Clear the Inventory Check messages and any discounted pricing if an option is changed
+    $('.messageNA, .messageAvail').hide();
+    $('#totalCost').removeClass('discounted');
+    $('.discount, #discountCost').hide();
+
+    // Set the thumbnail images accordingly when a new option is selected
+    if ($('#wood-species option:selected').text() === "Mahogany") $('#wood-species-image').attr("src", "images/mahogany.png");
+    if ($('#wood-species option:selected').text() === "Walnut") $('#wood-species-image').attr("src", "images/walnut.png");
+    if ($('#inlay option:selected').text() === "Chevron #1 +$25") $('#inlay-image').attr("src", "images/inlay1.jpg");
+    if ($('#inlay option:selected').text() === "Black Line #2 +$25") $('#inlay-image').attr("src", "images/inlay2.jpg");
+    if ($('#inlay option:selected').text() === "Blocks #3 +$25") $('#inlay-image').attr("src", "images/inlay3.jpg");
+    if ($('#inlay option:selected').text() === "Alternating Blocks #4 +$25") $('#inlay-image').attr("src", "images/inlay4.jpg");
+    if ($('#inlay option:selected').text() === "No Inlay") $('#inlay-image').attr("src", "images/none.png");
+    if ($('#velvet option:selected').text() === "Red") $('#velvet-image').attr("src", "images/red.jpg");
+    if ($('#velvet option:selected').text() === "Black") $('#velvet-image').attr("src", "images/black.jpg");
+
+    // Get the pricing values from the inputs and store them in the value variable
+    var wood = parseInt($('#wood-species').val());
+    var inlay = parseInt($('#inlay').val());
+    var velvet = parseInt($('#velvet').val());
+    var size = parseInt($('#size').val());
+    value = wood + inlay + velvet + size;
+
+    // Grab the choices and store them in the valueText variable so I can save those in the paypal info
+    var woodChoice = $('#wood-species option:selected').text();
+    var inlayChoice = $('#inlay option:selected').text();
+    var velvetChoice = $('#velvet option:selected').text();
+    var sizeChoice = $('#size option:selected').text();
+    valueText = "Jewelry Box - Wood: " + woodChoice + ". Inlay: " + inlayChoice + ". Velvet: " +
+                    velvetChoice + ". Size: " + sizeChoice;
+    $('#totalCost').text(value);
+
+    // Sets the value of the hidden form field that the paypal button script above creates
+    $('input[name="amount"]').val(value);
+    $('input[name="item_name"]').val(valueText);
   };
 
 };
@@ -156,17 +204,9 @@ var ViewModel = function () {
 ko.applyBindings( new ViewModel());
 
 
-
-
-// Helper js function to get height and width of browser
-var w = window,
-	d = document,
-	e = d.documentElement,
-	g = d.getElementsByTagName('body')[0],
-	x = w.innerWidth || e.clientWidth || g.clientWidth,
-	y = w.innerHeight || e.clientHeight || g.clientHeight;
-console.log("x: " + x);
-console.log("y: " + y);
+/*
+ * Other Site Scripts
+ */
 
 // Header styling changes on Scroll
 $(document).scroll(function() {
@@ -199,5 +239,5 @@ $('.masterTooltip').hover(function(){
   var mousex = e.pageX + 20; //Get X coordinates
   var mousey = e.pageY + 10; //Get Y coordinates
   $('.tooltip')
-  .css({ top: mousey, left: mousex })
+  .css({ top: mousey, left: mousex });
 });

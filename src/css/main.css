@@ -329,6 +329,10 @@ input[type="text"] {
     margin-top: -10px; }
     .build-container .cost-holder p > span {
       color: green; }
+  .build-container .discounted {
+    text-decoration: line-through;
+    padding-right: 5px;
+    color: #888; }
 
 .status-container {
   width: 50%;
@@ -379,11 +383,6 @@ input[type="text"] {
       font-weight: 700;
       opacity: 0;
       transition: opacity 0.5s; }
-      .inventory-section .chooseItem .caption .notAvail {
-        color: red; }
-      .inventory-section .chooseItem .caption .avail {
-        color: lightgreen;
-        font-size: .8em; }
   .inventory-section .inventory-container {
     width: 960px;
     background: #ffffff;
@@ -402,7 +401,7 @@ input[type="text"] {
         border-top: 2px solid #eee;
         border-bottom: 2px solid #eee;
         text-align: right;
-        padding: 25px 10px; }
+        padding: 15px 10px; }
         .inventory-section .inventory-container .inventory-info .inventory-pics > img:hover {
           opacity: .9;
           filter: alpha(opacity=90);
