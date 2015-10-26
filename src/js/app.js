@@ -208,6 +208,16 @@ ko.applyBindings( new ViewModel());
  * Other Site Scripts
  */
 
+// Helper js function to get height and width of browser
+var w = window,
+  d = document,
+  e = d.documentElement,
+  g = d.getElementsByTagName('body')[0],
+  x = w.innerWidth || e.clientWidth || g.clientWidth,
+  y = w.innerHeight || e.clientHeight || g.clientHeight;
+console.log(x);
+console.log(y);
+
 // Header styling changes on Scroll
 $(document).scroll(function() {
 	if ( $(this).scrollTop() > 25 ) {
