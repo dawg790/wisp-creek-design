@@ -423,8 +423,11 @@ input[type="text"] {
         margin-top: 0;
         padding: 0 10px 0; }
         .inventory-section .inventory-container .inventory-info .inventory-stats > ul > li:first-child {
-          font-size: 1.5em;
+          font-size: 1.4em;
           font-weight: 700; }
+          .inventory-section .inventory-container .inventory-info .inventory-stats > ul > li:first-child span {
+            color: red;
+            text-decoration: line-through; }
         .inventory-section .inventory-container .inventory-info .inventory-stats > ul > li {
           display: block;
           margin: 0; }

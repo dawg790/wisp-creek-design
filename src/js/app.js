@@ -22,8 +22,8 @@ var orders = [
 var inventory = [
   'Jewelry Box - Wood: Walnut. Inlay: Chevron #1 +$25. Velvet: Black. Size: Standard: 8" x 12"',
   'Jewelry Box - Wood: Mahogany. Inlay: Black Line #2 +$25. Velvet: Black. Size: Standard: 8" x 12"',
-  'Jewelry Box - Wood: Mahogany. Inlay: Blocks #3 +$25. Velvet: Red. Size: Large: 10" x 14" +$40',
-  'Jewelry Box - Wood: Mahogany. Inlay: Alternating Blocks #4 +$25. Velvet: Red. Size: Large: 10" x 14" +$40'
+  'Jewelry Box - Wood: Mahogany. Inlay: Blocks #3 +$25. Velvet: Red. Size: Large: 10" x 14" +$50',
+  'Jewelry Box - Wood: Mahogany. Inlay: Alternating Blocks #4 +$25. Velvet: Red. Size: Large: 10" x 14" +$50'
 ];
 
 
@@ -160,6 +160,7 @@ var ViewModel = function () {
     return false;
   };
 
+
   // The Box Builder function
   self.boxBuilder = function () {
     // Clear the Inventory Check messages and any discounted pricing if an option is changed
@@ -197,6 +198,7 @@ var ViewModel = function () {
     // Sets the value of the hidden form field that the paypal button script above creates
     $('input[name="amount"]').val(value);
     $('input[name="item_name"]').val(valueText);
+
   };
 
 };
@@ -250,4 +252,27 @@ $('.masterTooltip').hover(function(){
   var mousey = e.pageY + 10; //Get Y coordinates
   $('.tooltip')
   .css({ top: mousey, left: mousex });
+});
+
+// This is run on load in case a user does not change any of the select fields on the build page
+$(document).ready(function() {
+  // Get the pricing values from the inputs and store them in the value variable
+  var wood = parseInt($('#wood-species').val());
+  var inlay = parseInt($('#inlay').val());
+  var velvet = parseInt($('#velvet').val());
+  var size = parseInt($('#size').val());
+  var value = wood + inlay + velvet + size;
+
+  // Grab the choices and store them in the valueText variable so I can save those in the paypal info
+  var woodChoice = $('#wood-species option:selected').text();
+  var inlayChoice = $('#inlay option:selected').text();
+  var velvetChoice = $('#velvet option:selected').text();
+  var sizeChoice = $('#size option:selected').text();
+  var valueText = "Jewelry Box - Wood: " + woodChoice + ". Inlay: " + inlayChoice + ". Velvet: " +
+                  velvetChoice + ". Size: " + sizeChoice;
+  $('#totalCost').text(value);
+
+  // Sets the value of the hidden form field that the paypal button script above creates
+  $('input[name="amount"]').val(value);
+  $('input[name="item_name"]').val(valueText);
 });
