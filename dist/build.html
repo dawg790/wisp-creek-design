@@ -7,4 +7,27 @@
 		});
 
 		// Hide the font awesome fa-spinner
-		$('.fa-pulse').hide();</script></body></html>
+		$('.fa-pulse').hide();
+
+		// This is run on load in case a user does not change any of the select fields on the build page
+		$(document).ready(function() {
+		  // Get the pricing values from the inputs and store them in the value variable
+		  var wood = parseInt($('#wood-species').val());
+		  var inlay = parseInt($('#inlay').val());
+		  var velvet = parseInt($('#velvet').val());
+		  var size = parseInt($('#size').val());
+		  var value = wood + inlay + velvet + size;
+
+		  // Grab the choices and store them in the valueText variable so I can save those in the paypal info
+		  var woodChoice = $('#wood-species option:selected').text();
+		  var inlayChoice = $('#inlay option:selected').text();
+		  var velvetChoice = $('#velvet option:selected').text();
+		  var sizeChoice = $('#size option:selected').text();
+		  var valueText = "Jewelry Box - Wood: " + woodChoice + ". Inlay: " + inlayChoice + ". Velvet: " +
+		                  velvetChoice + ". Size: " + sizeChoice;
+		  $('#totalCost').text(value);
+
+		  // Sets the value of the hidden form field that the paypal button script above creates
+		  $('input[name="amount"]').val(value);
+		  $('input[name="item_name"]').val(valueText);
+		});</script></body></html>
