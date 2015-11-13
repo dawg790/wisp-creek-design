@@ -176,6 +176,16 @@ input[type="text"] {
 #right {
   right: 0; }
 
+.notice {
+  font-size: 1em;
+  color: #888888;
+  font-style: italic;
+  margin: -10px 0 25px 0; }
+  .notice > a:hover {
+    color: #1080dd; }
+  .notice > span {
+    font-weight: 700; }
+
 .heading {
   width: 150px;
   text-align: center;
@@ -287,6 +297,10 @@ input[type="text"] {
   .thumb-container .feature {
     width: 75%;
     margin-bottom: 25px; }
+  .thumb-container #player {
+    margin-bottom: 25px;
+    height: 400px;
+    width: 700px; }
 
 .build-container {
   width: 50%;
@@ -296,13 +310,6 @@ input[type="text"] {
     padding-bottom: 10px;
     margin-bottom: 35px;
     border-bottom: 1px solid #000000; }
-  .build-container .inventory-notice {
-    font-size: 1em;
-    color: #888888;
-    font-style: italic;
-    margin: -10px 0 25px 0; }
-    .build-container .inventory-notice > a:hover {
-      color: #1080dd; }
   .build-container .messageAvail,
   .build-container .messageNA {
     border-radius: 5px;
@@ -657,6 +664,10 @@ a[data-title]:hover:after {
 
   .build-container h2 {
     margin: 20px 0; }
+
+  .thumb-container #player {
+    height: 200px;
+    width: 350px; }
 
   .inventory-section {
     width: 300px; }

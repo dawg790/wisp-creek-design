@@ -4,15 +4,33 @@
  *
  */
 var orders = [
-  // Sample order below
+  // Orders below
   {
-    "firstName": "Nick",
+    "firstName": "Ann",
+    "lastName": "Meehan",
+    "orderNumber": "000004",
+    "status": "Shipped",
+    "completionDate": "November 8, 2015",
+    "notes": "Box has shipped!.",
+    "tracking": "1Z498E6E0344606224"
+  },
+  {
+    "firstName": "George",
     "lastName": "Woodland",
     "orderNumber": "000001",
+    "status": "Shipped",
+    "completionDate": "November 7, 2015",
+    "notes": "Your box has shipped!.",
+    "tracking": "1Z498E6E0377940766"
+  },
+  {
+    "firstName": "DeWitt",
+    "lastName": "Ivins",
+    "orderNumber": "000003",
     "status": "In Progress",
-    "completionDate": "July 1, 2015",
-    "notes": "Box is completed, first coat of Tung Oil has been applied.",
-    "tracking": "123"
+    "completionDate": "December 12, 2015",
+    "notes": "One box is complete, two more are being built.",
+    "tracking": "N/A"
   }
 ];
 
@@ -20,10 +38,7 @@ var orders = [
  * TODO: Keep this updated with the current boxes in stock
  */
 var inventory = [
-  'Jewelry Box - Wood: Walnut. Inlay: Chevron #1 +$25. Velvet: Black. Size: Standard: 8" x 12"',
-  'Jewelry Box - Wood: Mahogany. Inlay: Black Line #2 +$25. Velvet: Black. Size: Standard: 8" x 12"',
-  'Jewelry Box - Wood: Mahogany. Inlay: Blocks #3 +$25. Velvet: Red. Size: Large: 10" x 14" +$50',
-  'Jewelry Box - Wood: Mahogany. Inlay: Alternating Blocks #4 +$25. Velvet: Red. Size: Large: 10" x 14" +$50'
+  'Jewelry Box - Wood: Mahogany. Inlay: Black Line #2 +$25. Velvet: Black. Size: Standard: 8" x 12"'
 ];
 
 
@@ -95,8 +110,9 @@ var ViewModel = function () {
         break;
       }
     }
-    // Put tracking number into USPS tracking field
-    if (found) $('.tracking a').attr("href", "https://tools.usps.com/go/TrackConfirmAction?tLabels=" + self.allOrders()[i].tracking);
+    // USPS Tracking ULR: https://tools.usps.com/go/TrackConfirmAction?tLabels=
+    // UPS Tracking URL: https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=
+    if (found) $('.tracking a').attr("href", "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=" + self.allOrders()[i].tracking);
 
     // If our found variable is false, we did not find the order
     if (!found) $('.status span').html("We did not find that order. Please <a href='mailto:nick@wispcreekdesign.com'>Email Us</a.");

@@ -247,6 +247,19 @@ input[type="text"] {
 	right: 0;
 }
 
+.notice {
+	font-size: 1em;
+	color: $mediumgray;
+	font-style: italic;
+	margin: -10px 0 25px 0;
+	> a:hover {
+		color: $blue;
+	}
+	> span {
+		font-weight: 700;
+	}
+}
+
 .heading {
 	width: 150px;
 	text-align: center;
@@ -373,6 +386,11 @@ input[type="text"] {
 		width: 75%;
 		margin-bottom: 25px;
 	}
+	#player {
+		margin-bottom: 25px;
+		height: 400px;
+		width: 700px;
+	}
 }
 
 .build-container {
@@ -383,15 +401,6 @@ input[type="text"] {
 		padding-bottom: 10px;
 		margin-bottom: 35px;
 		border-bottom: 1px solid $black;
-	}
-	.inventory-notice {
-		font-size: 1em;
-		color: $mediumgray;
-		font-style: italic;
-		margin: -10px 0 25px 0;
-		> a:hover {
-			color: $blue;
-		}
 	}
 	.messageAvail,
 	.messageNA {
@@ -836,6 +845,11 @@ a[data-title]:hover:after {
 
 	.build-container h2 {
 		margin: 20px 0;
+	}
+
+	.thumb-container #player {
+		height: 200px;
+		width: 350px;
 	}
 
 	.inventory-section {
