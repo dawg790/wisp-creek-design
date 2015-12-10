@@ -9,28 +9,28 @@ var orders = [
     "firstName": "Ann",
     "lastName": "Meehan",
     "orderNumber": "000004",
-    "status": "Shipped",
+    "status": "Delivered",
     "completionDate": "November 8, 2015",
-    "notes": "Box has shipped!.",
-    "tracking": "1Z498E6E0344606224"
+    "notes": "",
+    "tracking": ""
   },
   {
     "firstName": "George",
     "lastName": "Woodland",
     "orderNumber": "000001",
-    "status": "Shipped",
+    "status": "Delivered",
     "completionDate": "November 7, 2015",
-    "notes": "Your box has shipped!.",
-    "tracking": "1Z498E6E0377940766"
+    "notes": "",
+    "tracking": ""
   },
   {
     "firstName": "DeWitt",
     "lastName": "Ivins",
     "orderNumber": "000003",
-    "status": "In Progress",
-    "completionDate": "December 12, 2015",
-    "notes": "One box is complete, two more are being built.",
-    "tracking": "N/A"
+    "status": "Shipped",
+    "completionDate": "December 9, 2015",
+    "notes": "All three boxes have been shipped!",
+    "tracking": "vj336880185us"
   }
 ];
 
@@ -112,7 +112,7 @@ var ViewModel = function () {
     }
     // USPS Tracking ULR: https://tools.usps.com/go/TrackConfirmAction?tLabels=
     // UPS Tracking URL: https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=
-    if (found) $('.tracking a').attr("href", "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=" + self.allOrders()[i].tracking);
+    if (found) $('.tracking a').attr("href", "https://tools.usps.com/go/TrackConfirmAction?tLabels=" + self.allOrders()[i].tracking);
 
     // If our found variable is false, we did not find the order
     if (!found) $('.status span').html("We did not find that order. Please <a href='mailto:nick@wispcreekdesign.com'>Email Us</a.");
