@@ -30,6 +30,31 @@
   		margin: 0;
   	}
 
+  	#messageYear,
+  	#messageFilter {
+			color: #008040;
+			font-weight: 700;
+  	}
+
+  	.instructions {
+  		border-radius: 5px;
+  		border: 1px solid #b3b3b3;
+  		margin-bottom: 35px;
+  		padding: 5px;
+  		background: linear-gradient(#1080dd, #124191);
+  		color: #fff;
+  		font-family: Verdana, san-serif;
+  	}
+
+  	.photo-container:first-child {
+  		margin-top: -35px;
+  		margin-bottom: -15px;
+  	}
+
+  	.photo-container button:hover {
+			cursor: pointer;
+  	}
+
   </style>
 
 </head>
@@ -37,6 +62,19 @@
 <body>
 
 <div class="wrapper">
+	<div class="photo-container">
+		<button id="openInstructions">HELP</button>
+	</div>
+	<div class="photo-container instructions">
+		<h3>How it works</h3>
+		<ul>
+			<li><p>You can select a specific year using the dropdown, or use the Tags to see targeted albums.</p></li>
+			<li><p>When you select a new year, the Tags will be cleared.</p></li>
+			<li><p>Make sure to keep any eye on the 'messages' above the albums in green text, to keep track of your current year/tag settings.</p></li>
+		</ul>
+		<button id="closeInstructions">CLOSE THIS</button>
+
+	</div>
 	<div class="photo-container">
 
 		<h1>Woodland Family Photos</h1>
@@ -77,7 +115,7 @@
 				</div>
 			</div>
 
-			<div class="photo-form-section group">
+			<!-- <div class="photo-form-section group">
 				<div class="title">
 					<h3>Location</h3>
 				</div>
@@ -89,7 +127,7 @@
 					<input type="button" value="International">
 					<input class="clear" type="button" value="Clear">
 				</div>
-			</div>
+			</div> -->
 
 		<hr>
 
@@ -111,6 +149,14 @@
 
 	</div>
 
+	<div class="photo-container snapfish">
+		<h1>Pre-2009 Albums</h1>
+		<h3>Anything prior to 2009 is available on Snapfish</h3>
+		<p>Username: nick_woodland@hotmail.com</p>
+		<p>Password: First name of our first girl (First letter Capitalized), plus her birthdate (mmddyyyy, i.e. 06011976)</p>
+		<p>Visit the <a href="http://library-static.snapfish.com/library/photos?website=snapfish_us&cobrand=snapfish&locale=en_US" target="_blank">Albums on Snapfish</a></p>
+	</div>
+
 </div>
 
 
@@ -119,11 +165,24 @@
 <script src="js/photos.min.js"></script>
 
 <script>
-	// Click event to clear the filters
-	$('.clear').click(function() {
-		$('li').each(function() {
-			$(this).show();
-		})
+	// Highlight the instructions section, dim the other sections on load
+	$(document).ready(function() {
+		$('.snapfish').hide();
+		$('.photo-container:not(.instructions)').css('opacity', '.4');
+		$('.photo-container:first-child').css('display', 'none');
+	});
+	$('#closeInstructions').click(function() {
+		$('.instructions').slideToggle();
+		$('.photo-container:not(.instructions').css('opacity', '1');
+		setTimeout(function() {
+			$('.photo-container:first-child').css('display', 'block');
+		}, 750);
+
+	});
+	$('#openInstructions').click(function() {
+		$('.instructions').css('display', 'block');
+		$('.photo-container:first-child').css('display', 'none');
+		$('.photo-container:not(.instructions)').css('opacity', '.4');
 	});
 
 	// Keyup event to search albums

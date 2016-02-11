@@ -12,11 +12,61 @@
 
   	h3 {
   		margin: 0;
-  	}</style></head><body><div class="wrapper"><div class="photo-container"><h1>Woodland Family Photos</h1><div class="photo-form-section group"><div class="title"><h3>Photo Albums by Year</h3></div><div class="form"><select id="album-year" data-bind="options: allYears"></select><br></div></div><div class="photo-form-section group"><div class="title"><h3>Search</h3></div><div class="form"><input id="search" type="text" value="" placeholder="Search albums..."></div></div><div class="photo-form-section group"><div class="title"><h3>Tags</h3></div><div class="form"><input type="button" value="Family"> <input type="button" value="Adventures"> <input type="button" value="Travel"> <input type="button" value="Camping"> <input type="button" value="Sienna"> <input type="button" value="Ava"> <input type="button" value="Teagan"> <input type="button" value="Bikepacking"> <input type="button" value="14ers"> <input class="clear" type="button" value="Clear"></div></div><div class="photo-form-section group"><div class="title"><h3>Location</h3></div><div class="form"><input type="button" value="Colorado"> <input type="button" value="Massachusetts"> <input type="button" value="Illinois"> <input type="button" value="Utah"> <input type="button" value="International"> <input class="clear" type="button" value="Clear"></div></div><hr><div class="photo-thumbs-section"><p id="messageYear"></p><p id="messageFilter"></p><ul class="photo-thumbs" data-bind="foreach: matchedItems"><li data-bind="attr: { class: filter }"><img data-bind="attr: { src: thumb }" height="125" width="200"> <a data-bind="attr: { href: url, title: caption }" target="_blank"><p data-bind="text: caption"></p></a></li></ul></div></div></div><script src="js/jquery.min.js"></script><script src="js/knockout.js"></script><script src="js/photos.min.js"></script><script>// Click event to clear the filters
-	$('.clear').click(function() {
-		$('li').each(function() {
-			$(this).show();
-		})
+  	}
+
+  	#messageYear,
+  	#messageFilter {
+			color: #008040;
+			font-weight: 700;
+  	}
+
+  	.instructions {
+  		border-radius: 5px;
+  		border: 1px solid #b3b3b3;
+  		margin-bottom: 35px;
+  		padding: 5px;
+  		background: linear-gradient(#1080dd, #124191);
+  		color: #fff;
+  		font-family: Verdana, san-serif;
+  	}
+
+  	.photo-container:first-child {
+  		margin-top: -35px;
+  		margin-bottom: -15px;
+  	}
+
+  	.photo-container button:hover {
+			cursor: pointer;
+  	}</style></head><body><div class="wrapper"><div class="photo-container"><button id="openInstructions">HELP</button></div><div class="photo-container instructions"><h3>How it works</h3><ul><li><p>You can select a specific year using the dropdown, or use the Tags to see targeted albums.</p></li><li><p>When you select a new year, the Tags will be cleared.</p></li><li><p>Make sure to keep any eye on the 'messages' above the albums in green text, to keep track of your current year/tag settings.</p></li></ul><button id="closeInstructions">CLOSE THIS</button></div><div class="photo-container"><h1>Woodland Family Photos</h1><div class="photo-form-section group"><div class="title"><h3>Photo Albums by Year</h3></div><div class="form"><select id="album-year" data-bind="options: allYears"></select><br></div></div><div class="photo-form-section group"><div class="title"><h3>Search</h3></div><div class="form"><input id="search" type="text" value="" placeholder="Search albums..."></div></div><div class="photo-form-section group"><div class="title"><h3>Tags</h3></div><div class="form"><input type="button" value="Family"> <input type="button" value="Adventures"> <input type="button" value="Travel"> <input type="button" value="Camping"> <input type="button" value="Sienna"> <input type="button" value="Ava"> <input type="button" value="Teagan"> <input type="button" value="Bikepacking"> <input type="button" value="14ers"> <input class="clear" type="button" value="Clear"></div></div><!-- <div class="photo-form-section group">
+				<div class="title">
+					<h3>Location</h3>
+				</div>
+				<div class="form">
+					<input type="button" value="Colorado">
+					<input type="button" value="Massachusetts">
+					<input type="button" value="Illinois">
+					<input type="button" value="Utah">
+					<input type="button" value="International">
+					<input class="clear" type="button" value="Clear">
+				</div>
+			</div> --><hr><div class="photo-thumbs-section"><p id="messageYear"></p><p id="messageFilter"></p><ul class="photo-thumbs" data-bind="foreach: matchedItems"><li data-bind="attr: { class: filter }"><img data-bind="attr: { src: thumb }" height="125" width="200"> <a data-bind="attr: { href: url, title: caption }" target="_blank"><p data-bind="text: caption"></p></a></li></ul></div></div><div class="photo-container snapfish"><h1>Pre-2009 Albums</h1><h3>Anything prior to 2009 is available on Snapfish</h3><p>Username: nick_woodland@hotmail.com</p><p>Password: First name of our first girl (First letter Capitalized), plus her birthdate (mmddyyyy, i.e. 06011976)</p><p>Visit the <a href="http://library-static.snapfish.com/library/photos?website=snapfish_us&cobrand=snapfish&locale=en_US" target="_blank">Albums on Snapfish</a></p></div></div><script src="js/jquery.min.js"></script><script src="js/knockout.js"></script><script src="js/photos.min.js"></script><script>// Highlight the instructions section, dim the other sections on load
+	$(document).ready(function() {
+		$('.snapfish').hide();
+		$('.photo-container:not(.instructions)').css('opacity', '.4');
+		$('.photo-container:first-child').css('display', 'none');
+	});
+	$('#closeInstructions').click(function() {
+		$('.instructions').slideToggle();
+		$('.photo-container:not(.instructions').css('opacity', '1');
+		setTimeout(function() {
+			$('.photo-container:first-child').css('display', 'block');
+		}, 750);
+
+	});
+	$('#openInstructions').click(function() {
+		$('.instructions').css('display', 'block');
+		$('.photo-container:first-child').css('display', 'none');
+		$('.photo-container:not(.instructions)').css('opacity', '.4');
 	});
 
 	// Keyup event to search albums
