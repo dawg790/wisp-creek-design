@@ -1,3 +1,5 @@
 The node modules will need to be reinstalled since the node modules folders were not all completely installed.
 
+NPM WAS UPDATED ON July 21, 2016
+
 July 20, 2016
