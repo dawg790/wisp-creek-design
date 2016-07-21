@@ -1,0 +1,3 @@
+The node modules will need to be reinstalled since the node modules folders were not all completely installed.
+
+July 20, 2016

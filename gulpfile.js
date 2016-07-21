@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-  minifycss = require('gulp-minify-css'),
+  cleanCSS = require('gulp-clean-css'),
   rename = require('gulp-rename'),
   notify = require('gulp-notify'),
   jshint = require('gulp-jshint'),
@@ -46,7 +46,7 @@ gulp.task('scripts', function () {
 gulp.task('styles', function () {
   return gulp.src('src/css/*.css')
     .pipe(rename({suffix: '.min'}))
-    .pipe(minifycss())
+    .pipe(cleanCSS())
     .pipe(gulp.dest('dist/css'))
     .pipe(notify({ message: 'Styles task complete!' }));
 });
